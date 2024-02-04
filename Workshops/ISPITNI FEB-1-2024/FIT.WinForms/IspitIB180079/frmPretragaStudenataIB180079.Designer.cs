@@ -1,6 +1,6 @@
-﻿namespace FIT.WinForms.IspitIB000000
+﻿namespace FIT.WinForms.IspitIB180079
 {
-    partial class frmPretragaIB000000
+    partial class frmPretragaStudenataIB180079
     {
         /// <summary>
         /// Required designer variable.
@@ -28,84 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            cbGrad = new ComboBox();
-            cbDrzava = new ComboBox();
             dgvStudenti = new DataGridView();
-            ImePrezime = new DataGridViewTextBoxColumn();
+            Student = new DataGridViewTextBoxColumn();
             Drzava = new DataGridViewTextBoxColumn();
             Grad = new DataGridViewTextBoxColumn();
             Prosjek = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            label2 = new Label();
+            cbDrzava = new ComboBox();
+            cbGrad = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(231, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(35, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Grad:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(10, 15);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Država:";
-            // 
-            // cbGrad
-            // 
-            cbGrad.FormattingEnabled = true;
-            cbGrad.Location = new Point(275, 13);
-            cbGrad.Margin = new Padding(3, 2, 3, 2);
-            cbGrad.Name = "cbGrad";
-            cbGrad.Size = new Size(191, 23);
-            cbGrad.TabIndex = 2;
-            cbGrad.SelectedIndexChanged += cbGrad_SelectedIndexChanged;
-            // 
-            // cbDrzava
-            // 
-            cbDrzava.FormattingEnabled = true;
-            cbDrzava.Location = new Point(66, 13);
-            cbDrzava.Margin = new Padding(3, 2, 3, 2);
-            cbDrzava.Name = "cbDrzava";
-            cbDrzava.Size = new Size(149, 23);
-            cbDrzava.TabIndex = 2;
-            cbDrzava.SelectedIndexChanged += cbDrzava_SelectedIndexChanged;
             // 
             // dgvStudenti
             // 
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { ImePrezime, Drzava, Grad, Prosjek });
-            dgvStudenti.Location = new Point(10, 50);
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Student, Drzava, Grad, Prosjek });
+            dgvStudenti.Location = new Point(12, 49);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
             dgvStudenti.RowTemplate.Height = 25;
-            dgvStudenti.ScrollBars = ScrollBars.Vertical;
+            dgvStudenti.RowTemplate.Resizable = DataGridViewTriState.True;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvStudenti.Size = new Size(456, 276);
-            dgvStudenti.TabIndex = 3;
+            dgvStudenti.Size = new Size(443, 236);
+            dgvStudenti.TabIndex = 0;
             // 
-            // ImePrezime
+            // Student
             // 
-            ImePrezime.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ImePrezime.DataPropertyName = "ImePrezime";
-            ImePrezime.HeaderText = "Ime i prezime";
-            ImePrezime.Name = "ImePrezime";
-            ImePrezime.ReadOnly = true;
+            Student.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Student.DataPropertyName = "Student";
+            Student.HeaderText = "Student";
+            Student.Name = "Student";
+            Student.ReadOnly = true;
             // 
             // Drzava
             // 
             Drzava.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Drzava.DataPropertyName = "Drzava";
-            Drzava.HeaderText = "Drzava";
+            Drzava.HeaderText = "Država";
             Drzava.Name = "Drzava";
             Drzava.ReadOnly = true;
             // 
@@ -125,32 +87,71 @@
             Prosjek.Name = "Prosjek";
             Prosjek.ReadOnly = true;
             // 
-            // frmPretragaIB000000
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Država:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(254, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(35, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Grad:";
+            // 
+            // cbDrzava
+            // 
+            cbDrzava.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDrzava.FormattingEnabled = true;
+            cbDrzava.Location = new Point(58, 17);
+            cbDrzava.Name = "cbDrzava";
+            cbDrzava.Size = new Size(190, 23);
+            cbDrzava.TabIndex = 2;
+            cbDrzava.SelectedIndexChanged += cbDrzava_SelectedIndexChanged;
+            // 
+            // cbGrad
+            // 
+            cbGrad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbGrad.FormattingEnabled = true;
+            cbGrad.Location = new Point(295, 17);
+            cbGrad.Name = "cbGrad";
+            cbGrad.Size = new Size(160, 23);
+            cbGrad.TabIndex = 3;
+            cbGrad.SelectedIndexChanged += cbGrad_SelectedIndexChanged;
+            // 
+            // frmPretragaStudenataIB180079
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(478, 338);
-            Controls.Add(dgvStudenti);
-            Controls.Add(cbDrzava);
+            ClientSize = new Size(468, 299);
             Controls.Add(cbGrad);
+            Controls.Add(cbDrzava);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "frmPretragaIB000000";
+            Controls.Add(dgvStudenti);
+            Name = "frmPretragaStudenataIB180079";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pretraga studenata";
-            Load += frmPretragaIB000000_Load;
+            Load += frmPretragaStudenataIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dgvStudenti;
         private Label label1;
         private Label label2;
-        private ComboBox cbGrad;
         private ComboBox cbDrzava;
-        private DataGridView dgvStudenti;
-        private DataGridViewTextBoxColumn ImePrezime;
+        private ComboBox cbGrad;
+        private DataGridViewTextBoxColumn Student;
         private DataGridViewTextBoxColumn Drzava;
         private DataGridViewTextBoxColumn Grad;
         private DataGridViewTextBoxColumn Prosjek;

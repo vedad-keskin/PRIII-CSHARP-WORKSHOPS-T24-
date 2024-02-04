@@ -38,14 +38,14 @@
             reportViewer1.Location = new Point(0, 0);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(800, 450);
+            reportViewer1.Size = new Size(682, 487);
             reportViewer1.TabIndex = 0;
             // 
             // frmIzvjestaji
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(682, 487);
             Controls.Add(reportViewer1);
             Name = "frmIzvjestaji";
             StartPosition = FormStartPosition.CenterScreen;

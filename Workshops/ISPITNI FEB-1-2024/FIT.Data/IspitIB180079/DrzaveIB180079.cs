@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FIT.Data.IspitIB0000000
+namespace FIT.Data.IspitIB180079
 {
-    public class PredmetiIB0000000
+    public class DrzaveIB180079
     {
         public int Id { get; set; }
         public string Naziv { get; set; }
-        public int Semestar { get; set; }
-
+        public bool Status { get; set; }
+        public byte[] Zastava { get; set; }
         public override string ToString()
         {
             return Naziv;

@@ -279,8 +279,6 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class dsGradoviDataTable : global::System.Data.TypedTableBase<dsGradoviRow> {
             
-            private global::System.Data.DataColumn columnRb;
-            
             private global::System.Data.DataColumn columnNaziv;
             
             private global::System.Data.DataColumn columnAktivan;
@@ -316,14 +314,6 @@ namespace FIT.WinForms.Izvjestaji {
             protected dsGradoviDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn RbColumn {
-                get {
-                    return this.columnRb;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -379,10 +369,9 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dsGradoviRow AdddsGradoviRow(string Rb, string Naziv, string Aktivan) {
+            public dsGradoviRow AdddsGradoviRow(string Naziv, string Aktivan) {
                 dsGradoviRow rowdsGradoviRow = ((dsGradoviRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Rb,
                         Naziv,
                         Aktivan};
                 rowdsGradoviRow.ItemArray = columnValuesArray;
@@ -407,7 +396,6 @@ namespace FIT.WinForms.Izvjestaji {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnRb = base.Columns["Rb"];
                 this.columnNaziv = base.Columns["Naziv"];
                 this.columnAktivan = base.Columns["Aktivan"];
             }
@@ -415,8 +403,6 @@ namespace FIT.WinForms.Izvjestaji {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnRb = new global::System.Data.DataColumn("Rb", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRb);
                 this.columnNaziv = new global::System.Data.DataColumn("Naziv", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNaziv);
                 this.columnAktivan = new global::System.Data.DataColumn("Aktivan", typeof(string), null, global::System.Data.MappingType.Element);
@@ -565,22 +551,6 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Rb {
-                get {
-                    try {
-                        return ((string)(this[this.tabledsGradovi.RbColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rb\' in table \'dsGradovi\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledsGradovi.RbColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Naziv {
                 get {
                     try {
@@ -609,18 +579,6 @@ namespace FIT.WinForms.Izvjestaji {
                 set {
                     this[this.tabledsGradovi.AktivanColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsRbNull() {
-                return this.IsNull(this.tabledsGradovi.RbColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetRbNull() {
-                this[this.tabledsGradovi.RbColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

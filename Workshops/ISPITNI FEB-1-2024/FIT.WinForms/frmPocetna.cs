@@ -1,5 +1,5 @@
 ﻿using FIT.Infrastructure;
-using FIT.WinForms.IspitIB000000;
+using FIT.WinForms.IspitIB180079;
 using FIT.WinForms.Izvjestaji;
 
 using System;
@@ -25,21 +25,23 @@ namespace FIT.WinForms
         private void frmPocetna_Load(object sender, EventArgs e)
         {
             lblKonekcijaInfo.Text = $"Broj studenata u bazi -> {db.Studenti.Count()}";
-            Text = "GLAVNA FORMA";
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIzvjestaj_Click(object sender, EventArgs e)
         {
-            frmDrzaveIB000000 frm = new frmDrzaveIB000000();
-            frm.ShowDialog();
+            //new frmIzvjestaji().Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var frm = new frmPretragaIB000000();
-            frm.ShowDialog();
+            frmDrzaveIB180079 frmDrzave = new frmDrzaveIB180079();
+            frmDrzave.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmPretragaStudenataIB180079 frmPretraga = new frmPretragaStudenataIB180079();
+            frmPretraga.ShowDialog();
         }
     }
 }

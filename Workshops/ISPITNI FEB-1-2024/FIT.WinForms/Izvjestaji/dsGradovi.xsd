@@ -9,15 +9,14 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="dsGradovi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsGradovi" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsGradovi">
+  <xs:element name="dsGradovi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsGradovi" msprop:Generator_DataSetName="dsGradovi">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dsGradovi" msprop:Generator_RowClassName="dsGradoviRow" msprop:Generator_RowEvHandlerName="dsGradoviRowChangeEventHandler" msprop:Generator_RowDeletedName="dsGradoviRowDeleted" msprop:Generator_RowDeletingName="dsGradoviRowDeleting" msprop:Generator_RowEvArgName="dsGradoviRowChangeEvent" msprop:Generator_TablePropName="_dsGradovi" msprop:Generator_RowChangedName="dsGradoviRowChanged" msprop:Generator_UserTableName="dsGradovi" msprop:Generator_RowChangingName="dsGradoviRowChanging" msprop:Generator_TableClassName="dsGradoviDataTable" msprop:Generator_TableVarName="tabledsGradovi">
+        <xs:element name="dsGradovi" msprop:Generator_RowEvHandlerName="dsGradoviRowChangeEventHandler" msprop:Generator_RowDeletedName="dsGradoviRowDeleted" msprop:Generator_RowDeletingName="dsGradoviRowDeleting" msprop:Generator_RowEvArgName="dsGradoviRowChangeEvent" msprop:Generator_TablePropName="_dsGradovi" msprop:Generator_RowChangedName="dsGradoviRowChanged" msprop:Generator_RowChangingName="dsGradoviRowChanging" msprop:Generator_TableClassName="dsGradoviDataTable" msprop:Generator_RowClassName="dsGradoviRow" msprop:Generator_TableVarName="tabledsGradovi" msprop:Generator_UserTableName="dsGradovi">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Rb" msprop:Generator_UserColumnName="Rb" msprop:Generator_ColumnPropNameInTable="RbColumn" msprop:Generator_ColumnPropNameInRow="Rb" msprop:Generator_ColumnVarNameInTable="columnRb" type="xs:string" minOccurs="0" />
-              <xs:element name="Naziv" msprop:Generator_UserColumnName="Naziv" msprop:Generator_ColumnPropNameInTable="NazivColumn" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnVarNameInTable="columnNaziv" type="xs:string" minOccurs="0" />
-              <xs:element name="Aktivan" msprop:Generator_UserColumnName="Aktivan" msprop:Generator_ColumnPropNameInTable="AktivanColumn" msprop:Generator_ColumnPropNameInRow="Aktivan" msprop:Generator_ColumnVarNameInTable="columnAktivan" type="xs:string" minOccurs="0" />
+              <xs:element name="Naziv" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnPropNameInTable="NazivColumn" msprop:Generator_ColumnVarNameInTable="columnNaziv" msprop:Generator_UserColumnName="Naziv" type="xs:string" minOccurs="0" />
+              <xs:element name="Aktivan" msprop:Generator_ColumnPropNameInRow="Aktivan" msprop:Generator_ColumnPropNameInTable="AktivanColumn" msprop:Generator_ColumnVarNameInTable="columnAktivan" msprop:Generator_UserColumnName="Aktivan" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
