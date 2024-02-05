@@ -40,7 +40,7 @@ namespace FIT.WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmPretragaStudenataIB180079 frmPretraga = new frmPretragaStudenataIB180079();
+            frmPretragaIB180079 frmPretraga = new frmPretragaIB180079();
             frmPretraga.ShowDialog();
         }
     }

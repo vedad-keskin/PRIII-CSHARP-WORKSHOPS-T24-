@@ -14,12 +14,12 @@ using System.Windows.Forms;
 
 namespace FIT.WinForms.IspitIB180079
 {
-    public partial class frmPretragaStudenataIB180079 : Form
+    public partial class frmPretragaIB180079 : Form
     {
         DLWMSDbContext db = new DLWMSDbContext();
         List<Student> studenti;
         DrzaveIB180079 odabranaDrzava;
-        public frmPretragaStudenataIB180079()
+        public frmPretragaIB180079()
         {
             InitializeComponent();
         }
@@ -33,18 +33,20 @@ namespace FIT.WinForms.IspitIB180079
         {
             odabranaDrzava = cbDrzava.SelectedItem as DrzaveIB180079;
 
-            var grad = cbGrad.SelectedItem == null ? "" : cbGrad.SelectedItem.ToString();
-            
+            var grad = cbGrad.SelectedItem == null ? "Svi" : cbGrad.SelectedItem.ToString();
+
 
             studenti = db.Studenti.Include("Grad").Include("Semestar")
-                .Where(x => x.Grad.Naziv == grad && x.Grad.DrzavaId == odabranaDrzava.Id)
+                .Where(x => (x.Grad.Naziv == grad || grad == "Svi") &&
+                x.Grad.DrzavaId == odabranaDrzava.Id)
                 .ToList();
 
             if (studenti != null)
             {
 
                 var tblStudenti = new DataTable();
-                tblStudenti.Columns.Add("Student");
+                tblStudenti.Columns.Add("Ime");
+                tblStudenti.Columns.Add("Prezime");
                 tblStudenti.Columns.Add("Drzava");
                 tblStudenti.Columns.Add("Grad");
                 tblStudenti.Columns.Add("Prosjek");
@@ -53,15 +55,20 @@ namespace FIT.WinForms.IspitIB180079
                 {
                     var student = studenti[i];
                     var Red = tblStudenti.NewRow();
-                    Red["Student"] = student.ToString();
+                    Red["Ime"] = student.Ime.ToString();
+                    Red["Prezime"] = student.Prezime.ToString();
                     Red["Drzava"] = student.Grad.Drzava.ToString();
                     Red["Grad"] = student.Grad.ToString();
-                    Red["Prosjek"] = db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Count() == 0 ? "0" : db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Average(x => x.Ocjena).ToString("N2");
+                    Red["Prosjek"] = db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Count() == 0 ? "5" : db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Average(x => x.Ocjena).ToString("N2");
                     tblStudenti.Rows.Add(Red);
                 }
 
                 dgvStudenti.DataSource = null;
                 dgvStudenti.DataSource = tblStudenti;
+            }
+            if(studenti.Count() == 0)
+            {
+                MessageBox.Show($"U bazi nije evidentiran niti jedan student rođen u gradu {grad}, {odabranaDrzava}","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
@@ -69,7 +76,7 @@ namespace FIT.WinForms.IspitIB180079
         {
             UcitajStudente();
 
-            cbGrad.DataSource = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).Count() == 0 ?null : db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
+            cbGrad.DataSource = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).Count() == 0 ? null : db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
         }
 
         private void cbGrad_SelectedIndexChanged(object sender, EventArgs e)
