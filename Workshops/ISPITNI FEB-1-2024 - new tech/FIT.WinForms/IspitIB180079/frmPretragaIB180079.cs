@@ -26,6 +26,7 @@ namespace FIT.WinForms.IspitIB180079
 
         private void frmPretragaStudenataIB180079_Load(object sender, EventArgs e)
         {
+            dgvStudenti.AutoGenerateColumns = false;
             cbDrzava.DataSource = db.DrzaveIB180079.ToList();
         }
 
@@ -44,29 +45,13 @@ namespace FIT.WinForms.IspitIB180079
             if (studenti != null)
             {
 
-                var tblStudenti = new DataTable();
-                tblStudenti.Columns.Add("Ime");
-                tblStudenti.Columns.Add("Prezime");
-                tblStudenti.Columns.Add("Drzava");
-                tblStudenti.Columns.Add("Grad");
-                tblStudenti.Columns.Add("Prosjek");
-
                 for (int i = 0; i < studenti.Count(); i++)
                 {
-                    var student = studenti[i];
-                    var Red = tblStudenti.NewRow();
-                    Red["Ime"] = student.Ime.ToString();
-                    Red["Prezime"] = student.Prezime.ToString();
-                    Red["Drzava"] = student.Grad.Drzava.ToString();
-                    Red["Grad"] = student.Grad.ToString();
-                    Red["Prosjek"] = db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Count() == 0 ? "5" : db.PolozeniPredmeti.Where(x => x.StudentId == student.Id).Average(x => x.Ocjena).ToString("N2");
-
-
-                    tblStudenti.Rows.Add(Red);
+                    studenti[i].Prosjek = db.PolozeniPredmeti.Where(x => x.StudentId == studenti[i].Id).Count() == 0 ? "5" : db.PolozeniPredmeti.Where(x => x.StudentId == studenti[i].Id).Average(x => x.Ocjena).ToString("N2");
                 }
 
                 dgvStudenti.DataSource = null;
-                dgvStudenti.DataSource = tblStudenti;
+                dgvStudenti.DataSource = studenti;
             }
             if(studenti.Count() == 0)
             {
