@@ -103,8 +103,6 @@ namespace FIT.WinForms.IspitIB180079
 
                     txtNaziv.Clear();
                 }
-
-
                 UcitajGradove();
             }
         }

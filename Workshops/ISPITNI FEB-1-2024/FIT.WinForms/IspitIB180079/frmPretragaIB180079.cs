@@ -36,9 +36,9 @@ namespace FIT.WinForms.IspitIB180079
             var grad = cbGrad.SelectedItem == null ? "Svi" : cbGrad.SelectedItem.ToString();
 
 
-            studenti = db.Studenti.Include("Grad").Include("Semestar")
+            studenti = db.Studenti.Include(x=> x.Grad).ThenInclude(x=> x.Drzava)
                 .Where(x => (x.Grad.Naziv == grad || grad == "Svi") &&
-                x.Grad.DrzavaId == odabranaDrzava.Id)
+                x.Grad.Drzava.Naziv == odabranaDrzava.Naziv)
                 .ToList();
 
             if (studenti != null)

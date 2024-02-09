@@ -112,15 +112,13 @@ namespace FIT.WinForms.IspitIB180079
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        { 
+
+
             if (odabranaDrzava != null)
             {
                 frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
                 frmIzvjestaj.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("null je ");
             }
 
 
