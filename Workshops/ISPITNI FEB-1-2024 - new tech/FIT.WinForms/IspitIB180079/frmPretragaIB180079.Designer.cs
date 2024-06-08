@@ -47,27 +47,32 @@
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Ime, Prezime, Grad, Drzava, Prosjek });
-            dgvStudenti.Location = new Point(12, 76);
+            dgvStudenti.Location = new Point(14, 101);
+            dgvStudenti.Margin = new Padding(3, 4, 3, 4);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
+            dgvStudenti.RowHeadersWidth = 51;
             dgvStudenti.RowTemplate.Height = 25;
             dgvStudenti.RowTemplate.Resizable = DataGridViewTriState.True;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvStudenti.Size = new Size(545, 236);
+            dgvStudenti.Size = new Size(851, 315);
             dgvStudenti.TabIndex = 0;
             // 
             // Ime
             // 
             Ime.DataPropertyName = "Ime";
             Ime.HeaderText = "Ime";
+            Ime.MinimumWidth = 6;
             Ime.Name = "Ime";
             Ime.ReadOnly = true;
+            Ime.Width = 125;
             // 
             // Prezime
             // 
             Prezime.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Prezime.DataPropertyName = "Prezime";
             Prezime.HeaderText = "Prezime";
+            Prezime.MinimumWidth = 6;
             Prezime.Name = "Prezime";
             Prezime.ReadOnly = true;
             // 
@@ -76,6 +81,7 @@
             Grad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Grad.DataPropertyName = "Grad";
             Grad.HeaderText = "Grad";
+            Grad.MinimumWidth = 6;
             Grad.Name = "Grad";
             Grad.ReadOnly = true;
             // 
@@ -84,6 +90,7 @@
             Drzava.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Drzava.DataPropertyName = "Drzava";
             Drzava.HeaderText = "Država";
+            Drzava.MinimumWidth = 6;
             Drzava.Name = "Drzava";
             Drzava.ReadOnly = true;
             // 
@@ -92,24 +99,25 @@
             Prosjek.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Prosjek.DataPropertyName = "Prosjek";
             Prosjek.HeaderText = "Prosjek";
+            Prosjek.MinimumWidth = 6;
             Prosjek.Name = "Prosjek";
             Prosjek.ReadOnly = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 20);
+            label1.Location = new Point(14, 27);
             label1.Name = "label1";
-            label1.Size = new Size(45, 15);
+            label1.Size = new Size(58, 20);
             label1.TabIndex = 1;
             label1.Text = "Država:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(221, 20);
+            label2.Location = new Point(253, 27);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(44, 20);
             label2.TabIndex = 1;
             label2.Text = "Grad:";
             // 
@@ -117,9 +125,10 @@
             // 
             cbDrzava.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDrzava.FormattingEnabled = true;
-            cbDrzava.Location = new Point(12, 38);
+            cbDrzava.Location = new Point(14, 51);
+            cbDrzava.Margin = new Padding(3, 4, 3, 4);
             cbDrzava.Name = "cbDrzava";
-            cbDrzava.Size = new Size(190, 23);
+            cbDrzava.Size = new Size(217, 28);
             cbDrzava.TabIndex = 2;
             cbDrzava.SelectedIndexChanged += cbDrzava_SelectedIndexChanged;
             // 
@@ -127,22 +136,24 @@
             // 
             cbGrad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbGrad.FormattingEnabled = true;
-            cbGrad.Location = new Point(221, 38);
+            cbGrad.Location = new Point(253, 51);
+            cbGrad.Margin = new Padding(3, 4, 3, 4);
             cbGrad.Name = "cbGrad";
-            cbGrad.Size = new Size(173, 23);
+            cbGrad.Size = new Size(197, 28);
             cbGrad.TabIndex = 3;
             cbGrad.SelectedIndexChanged += cbGrad_SelectedIndexChanged;
             // 
             // frmPretragaIB180079
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(571, 325);
+            ClientSize = new Size(877, 444);
             Controls.Add(cbGrad);
             Controls.Add(cbDrzava);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvStudenti);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmPretragaIB180079";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Podaci o studentima";
