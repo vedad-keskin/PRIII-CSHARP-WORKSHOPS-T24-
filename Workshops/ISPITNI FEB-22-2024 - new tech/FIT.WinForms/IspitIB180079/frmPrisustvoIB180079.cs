@@ -20,8 +20,6 @@ namespace FIT.WinForms.IspitIB180079
         private ProstorijeIB180079 odabranaProstorija;
         DLWMSDbContext db = new DLWMSDbContext();
         List<PrisustvoIB180079> prisustva;
-        int brojac = 0;
-
 
         public frmPrisustvoIB180079(ProstorijeIB180079 odabranaProstorija)
         {
@@ -33,119 +31,126 @@ namespace FIT.WinForms.IspitIB180079
         {
             dgvPrisustva.AutoGenerateColumns = false;
 
-            cbNastave.DataSource = db.NastavaIB180079
-                .Include(x => x.Predmet)
-                .Where(x => x.ProstorijaId == odabranaProstorija.Id)
-                .ToList();
+            lblProstorijaNaziv.Text = $"{odabranaProstorija.Naziv} - {odabranaProstorija.Oznaka}";
+
+            cbNastava.DataSource = db.NastavaIB180079.Where(x => x.ProstorijaId == odabranaProstorija.Id).ToList();
+
+            cbNastava.DisplayMember = "Oznaka";
 
             cbStudent.DataSource = db.Studenti.ToList();
 
-            lblProstorija.Text = odabranaProstorija.Naziv;
 
 
+        }
+
+        private void cbNastava_SelectedIndexChanged(object sender, EventArgs e)
+        {
             UcitajPrisustva();
-
-
-            UcitajPrebrojavanje();
-
         }
 
         private void UcitajPrisustva()
         {
+            var nastava = cbNastava.SelectedItem as NastavaIB180079;
+
+
             prisustva = db.PrisustvoIB180079
                 .Include(x => x.Nastava).ThenInclude(x => x.Predmet)
-                .Include(x => x.Nastava).ThenInclude(x => x.Prostorija)
                 .Include(x => x.Student)
-                .Where(x => x.Nastava.Prostorija.Naziv == odabranaProstorija.Naziv)
+                .Where(x => x.NastavaId == nastava.Id)
                 .ToList();
 
-            if (prisustva != null)
+            if (nastava != null)
             {
+
                 dgvPrisustva.DataSource = null;
                 dgvPrisustva.DataSource = prisustva;
+
             }
 
-            brojac = prisustva.Count();
+            lblPrebrojavanje.Text = $"{prisustva.Count()}/{odabranaProstorija.Kapacitet}";
 
-            UcitajPrebrojavanje();
-
-        }
-
-        private void UcitajPrebrojavanje()
-        {
-            lblOd.Text = brojac.ToString();
-            lblDo.Text = odabranaProstorija.Kapacitet.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             var student = cbStudent.SelectedItem as Student;
-            var nastava = cbNastave.SelectedItem as NastavaIB180079;
+            var nastava = cbNastava.SelectedItem as NastavaIB180079;
 
-
-            if (prisustva.Exists(x => x.StudentId == student.Id && x.NastavaId == nastava.Id))
+            if (prisustva.Exists(x => x.StudentId == student.Id))
             {
-                MessageBox.Show("Taj student je vec evidentiran na toj nastavi", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Student je vec evidentiran na toj nastavi", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if(odabranaProstorija.Kapacitet == prisustva.Count()) // 30 == 30 
+                //    8              ==    8 
+                if (prisustva.Count() == odabranaProstorija.Kapacitet)
                 {
-                    MessageBox.Show("Kapacitet prostorije je pun","Upozorenje",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Prostorija je popunjena", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   var NovoPrisustvo = new PrisustvoIB180079()
-                   {
-                       StudentId = student.Id,
-                       NastavaId = nastava.Id
 
-                   };
+                    var novoPrisutvo = new PrisustvoIB180079()
+                    {
 
-                   db.PrisustvoIB180079.Add(NovoPrisustvo);
+                        NastavaId = nastava.Id,
+                        StudentId = student.Id
 
+                    };
+
+                    db.PrisustvoIB180079.Add(novoPrisutvo);
+                    db.SaveChanges();
                 }
-
 
 
             }
 
-            db.SaveChanges();
+
 
             UcitajPrisustva();
-
 
         }
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            // 1. dio
-            // - postavljanje threada
-            // - sve sto je vezano za combobox
+            // 1. dio 
+            // -- dodamo async
+            // -- postavljanje threada
+            // -- pokretanje threada
+            // -- sve sto je vezano za combobox radimo ovdje
+            // -- validacija
+
+            var student = cbStudent.SelectedItem as Student;
+            var nastava = cbNastava.SelectedItem as NastavaIB180079;
 
             if (Validiraj())
             {
 
-                var student = cbStudent.SelectedItem as Student;
-                var nastava = cbNastave.SelectedItem as NastavaIB180079;
-
-                Thread thread = new Thread(() => GenerisiPrisustva(student,nastava) );
+                Thread thread = new Thread(() => GenerisiPrisustva(student,nastava));
                 thread.Start();
-
-
             }
 
+
+
+        }
+
+        private bool Validiraj()
+        {
+            return Validator.ProvjeriUnos(txtBroj, err, Kljucevi.ReqiredValue);
         }
 
         private void GenerisiPrisustva(Student? student, NastavaIB180079? nastava)
         {
-            // 2. dio 
-            // -- sve kalukacije i pohranjivanja
-            // -- timer
+            // 2. dio
+            // -- pohrane ali ako one nisu iz comboboxa
+            // -- kalkalacije
+            // -- pohrane na bazu
+            // -- spavanje threada
 
-            Thread.Sleep(3000);
+            Thread.Sleep(300);
 
-            var broj = int.Parse(txtBroj.Text); // 2
+            var broj = int.Parse(txtBroj.Text);
             string info = "";
 
             for (int i = 0; i < broj; i++)
@@ -157,26 +162,27 @@ namespace FIT.WinForms.IspitIB180079
                     NastavaId = nastava.Id
                 };
 
-                info += $"{DateTime.Now.ToString("dd.MM HH:mm:ss")} -> {student} za {nastava} {Environment.NewLine}";
 
                 db.PrisustvoIB180079.Add(novoPrisustvo);
                 db.SaveChanges();
 
+                info += $"{DateTime.Now.ToString("dd.MM HH:mm:ss")} -> {student} za {nastava} {Environment.NewLine}";
+
             }
 
 
-            // 3. dio
-            // -- ispisi , ucitavanja, mbox
+            Action action = () => {
 
-            Action action = () =>
-            {
-
+                // 3. dio
+                // -- mbox
+                // -- ispisi
+                // -- ucitavanja
 
                 UcitajPrisustva();
+                MessageBox.Show($"Generisali ste {broj} prisustva","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 txtInfo.Text = info;
-                MessageBox.Show($"Generisano je {broj} prisustva","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                txtBroj.Clear();
 
+                txtBroj.Clear();
 
             };
             BeginInvoke(action);
@@ -186,9 +192,6 @@ namespace FIT.WinForms.IspitIB180079
 
         }
 
-        private bool Validiraj()
-        {
-            return Validator.ProvjeriUnos(txtBroj, err, Kljucevi.ReqiredValue);
-        }
+ 
     }
 }

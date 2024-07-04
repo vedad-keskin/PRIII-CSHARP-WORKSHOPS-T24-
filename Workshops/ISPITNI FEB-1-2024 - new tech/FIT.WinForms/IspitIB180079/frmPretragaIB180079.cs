@@ -58,17 +58,16 @@ namespace FIT.WinForms.IspitIB180079
                 dgvStudenti.DataSource = null;
                 dgvStudenti.DataSource = studenti;
             }
-            if(studenti.Count() == 0)
-            {
-                MessageBox.Show($"U bazi nije evidentiran niti jedan student rođen u gradu {grad}, {odabranaDrzava}","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
+
         }
 
         private void cbDrzava_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             UcitajStudente();
 
             cbGrad.DataSource = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
+
         }
 
         private void cbGrad_SelectedIndexChanged(object sender, EventArgs e)

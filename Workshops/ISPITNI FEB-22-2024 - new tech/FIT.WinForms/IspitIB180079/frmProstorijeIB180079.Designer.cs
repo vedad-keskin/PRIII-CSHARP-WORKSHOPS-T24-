@@ -43,9 +43,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(835, 24);
+            button1.Location = new Point(817, 35);
             button1.Name = "button1";
-            button1.Size = new Size(183, 29);
+            button1.Size = new Size(146, 29);
             button1.TabIndex = 0;
             button1.Text = "Nova prostorija";
             button1.UseVisualStyleBackColor = true;
@@ -53,9 +53,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(835, 418);
+            button2.Location = new Point(817, 311);
             button2.Name = "button2";
-            button2.Size = new Size(183, 29);
+            button2.Size = new Size(146, 29);
             button2.TabIndex = 0;
             button2.Text = "Printaj";
             button2.UseVisualStyleBackColor = true;
@@ -67,13 +67,13 @@
             dgvProstorije.AllowUserToDeleteRows = false;
             dgvProstorije.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProstorije.Columns.AddRange(new DataGridViewColumn[] { Logo, Naziv, Oznaka, Kapacitet, Broj, Nastava, Prisustvo });
-            dgvProstorije.Location = new Point(12, 61);
+            dgvProstorije.Location = new Point(12, 70);
             dgvProstorije.Name = "dgvProstorije";
             dgvProstorije.ReadOnly = true;
             dgvProstorije.RowHeadersWidth = 51;
             dgvProstorije.RowTemplate.Height = 29;
             dgvProstorije.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProstorije.Size = new Size(1006, 342);
+            dgvProstorije.Size = new Size(951, 235);
             dgvProstorije.TabIndex = 1;
             dgvProstorije.CellContentClick += dgvProstorije_CellContentClick;
             dgvProstorije.CellDoubleClick += dgvProstorije_CellDoubleClick;
@@ -117,12 +117,12 @@
             // 
             // Broj
             // 
+            Broj.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Broj.DataPropertyName = "Broj";
             Broj.HeaderText = "Br. predmeta";
             Broj.MinimumWidth = 6;
             Broj.Name = "Broj";
             Broj.ReadOnly = true;
-            Broj.Width = 125;
             // 
             // Nastava
             // 
@@ -148,12 +148,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1030, 478);
+            ClientSize = new Size(976, 351);
             Controls.Add(dgvProstorije);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "frmProstorijeIB180079";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Prostorije";
             Load += frmProstorijeIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProstorije).EndInit();

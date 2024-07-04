@@ -27,6 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Izvjestaji\dsIzvjestajIB180079.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsIzvjestajIB180079.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -53,6 +58,10 @@
   <ItemGroup>
     <None Update="DLWMS.db">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Izvjestaji\dsIzvjestajIB180079.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsIzvjestajIB180079.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

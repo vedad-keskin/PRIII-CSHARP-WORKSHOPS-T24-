@@ -9,6 +9,8 @@ namespace FIT.Data.IspitIB180079
 {
     public class ProstorijeIB180079
     {
+        
+
         public int Id { get; set; }
         public string Naziv { get; set; }
         public string Oznaka { get; set; }
@@ -22,5 +24,6 @@ namespace FIT.Data.IspitIB180079
         {
             return Naziv;
         }
+
     }
 }

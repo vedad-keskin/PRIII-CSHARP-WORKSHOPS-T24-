@@ -20,9 +20,9 @@ namespace FIT.WinForms.Izvjestaji {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsPrisustvaIB180079")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsIzvjestajIB180079")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsPrisustvaIB180079 : global::System.Data.DataSet {
+    public partial class dsIzvjestajIB180079 : global::System.Data.DataSet {
         
         private dsPrisustvaDataTable tabledsPrisustva;
         
@@ -30,7 +30,7 @@ namespace FIT.WinForms.Izvjestaji {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public dsPrisustvaIB180079() {
+        public dsIzvjestajIB180079() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FIT.WinForms.Izvjestaji {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected dsPrisustvaIB180079(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsIzvjestajIB180079(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsPrisustvaIB180079 cln = ((dsPrisustvaIB180079)(base.Clone()));
+            dsIzvjestajIB180079 cln = ((dsIzvjestajIB180079)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsPrisustvaIB180079";
+            this.DataSetName = "dsIzvjestajIB180079";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsPrisustvaIB180079.xsd";
+            this.Namespace = "http://tempuri.org/dsIzvjestajIB180079.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tabledsPrisustva = new dsPrisustvaDataTable();
@@ -225,7 +225,7 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsPrisustvaIB180079 ds = new dsPrisustvaIB180079();
+            dsIzvjestajIB180079 ds = new dsIzvjestajIB180079();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -285,9 +285,9 @@ namespace FIT.WinForms.Izvjestaji {
             
             private global::System.Data.DataColumn columnVrijeme;
             
-            private global::System.Data.DataColumn columnBroj_indeksa;
+            private global::System.Data.DataColumn columnBrojIndeksa;
             
-            private global::System.Data.DataColumn columnIme_prezime;
+            private global::System.Data.DataColumn columnImePrezime;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -348,17 +348,17 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Broj_indeksaColumn {
+            public global::System.Data.DataColumn BrojIndeksaColumn {
                 get {
-                    return this.columnBroj_indeksa;
+                    return this.columnBrojIndeksa;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Ime_prezimeColumn {
+            public global::System.Data.DataColumn ImePrezimeColumn {
                 get {
-                    return this.columnIme_prezime;
+                    return this.columnImePrezime;
                 }
             }
             
@@ -399,14 +399,14 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dsPrisustvaRow AdddsPrisustvaRow(string Rb, string Predmet, string Vrijeme, string Broj_indeksa, string Ime_prezime) {
+            public dsPrisustvaRow AdddsPrisustvaRow(string Rb, string Predmet, string Vrijeme, string BrojIndeksa, string ImePrezime) {
                 dsPrisustvaRow rowdsPrisustvaRow = ((dsPrisustvaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Rb,
                         Predmet,
                         Vrijeme,
-                        Broj_indeksa,
-                        Ime_prezime};
+                        BrojIndeksa,
+                        ImePrezime};
                 rowdsPrisustvaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsPrisustvaRow);
                 return rowdsPrisustvaRow;
@@ -432,8 +432,8 @@ namespace FIT.WinForms.Izvjestaji {
                 this.columnRb = base.Columns["Rb"];
                 this.columnPredmet = base.Columns["Predmet"];
                 this.columnVrijeme = base.Columns["Vrijeme"];
-                this.columnBroj_indeksa = base.Columns["Broj_indeksa"];
-                this.columnIme_prezime = base.Columns["Ime_prezime"];
+                this.columnBrojIndeksa = base.Columns["BrojIndeksa"];
+                this.columnImePrezime = base.Columns["ImePrezime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -445,10 +445,10 @@ namespace FIT.WinForms.Izvjestaji {
                 base.Columns.Add(this.columnPredmet);
                 this.columnVrijeme = new global::System.Data.DataColumn("Vrijeme", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVrijeme);
-                this.columnBroj_indeksa = new global::System.Data.DataColumn("Broj_indeksa", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBroj_indeksa);
-                this.columnIme_prezime = new global::System.Data.DataColumn("Ime_prezime", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIme_prezime);
+                this.columnBrojIndeksa = new global::System.Data.DataColumn("BrojIndeksa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrojIndeksa);
+                this.columnImePrezime = new global::System.Data.DataColumn("ImePrezime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImePrezime);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -516,7 +516,7 @@ namespace FIT.WinForms.Izvjestaji {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsPrisustvaIB180079 ds = new dsPrisustvaIB180079();
+                dsIzvjestajIB180079 ds = new dsIzvjestajIB180079();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -639,33 +639,33 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Broj_indeksa {
+            public string BrojIndeksa {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPrisustva.Broj_indeksaColumn]));
+                        return ((string)(this[this.tabledsPrisustva.BrojIndeksaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Broj_indeksa\' in table \'dsPrisustva\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrojIndeksa\' in table \'dsPrisustva\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPrisustva.Broj_indeksaColumn] = value;
+                    this[this.tabledsPrisustva.BrojIndeksaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Ime_prezime {
+            public string ImePrezime {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPrisustva.Ime_prezimeColumn]));
+                        return ((string)(this[this.tabledsPrisustva.ImePrezimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ime_prezime\' in table \'dsPrisustva\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImePrezime\' in table \'dsPrisustva\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPrisustva.Ime_prezimeColumn] = value;
+                    this[this.tabledsPrisustva.ImePrezimeColumn] = value;
                 }
             }
             
@@ -707,26 +707,26 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBroj_indeksaNull() {
-                return this.IsNull(this.tabledsPrisustva.Broj_indeksaColumn);
+            public bool IsBrojIndeksaNull() {
+                return this.IsNull(this.tabledsPrisustva.BrojIndeksaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBroj_indeksaNull() {
-                this[this.tabledsPrisustva.Broj_indeksaColumn] = global::System.Convert.DBNull;
+            public void SetBrojIndeksaNull() {
+                this[this.tabledsPrisustva.BrojIndeksaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsIme_prezimeNull() {
-                return this.IsNull(this.tabledsPrisustva.Ime_prezimeColumn);
+            public bool IsImePrezimeNull() {
+                return this.IsNull(this.tabledsPrisustva.ImePrezimeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetIme_prezimeNull() {
-                this[this.tabledsPrisustva.Ime_prezimeColumn] = global::System.Convert.DBNull;
+            public void SetImePrezimeNull() {
+                this[this.tabledsPrisustva.ImePrezimeColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -1,8 +1,8 @@
 ﻿using FIT.Data.IspitIB180079;
 using FIT.Infrastructure;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Reporting.WinForms;
+using System.Drawing.Text;
 
 namespace FIT.WinForms.Izvjestaji
 {
@@ -11,10 +11,6 @@ namespace FIT.WinForms.Izvjestaji
         private ProstorijeIB180079? odabranaProstorija;
         DLWMSDbContext db = new DLWMSDbContext();
 
-        public frmIzvjestaji()
-        {
-            InitializeComponent();
-        }
 
         public frmIzvjestaji(ProstorijeIB180079? odabranaProstorija)
         {
@@ -25,47 +21,45 @@ namespace FIT.WinForms.Izvjestaji
         private void frmIzvjestaji_Load(object sender, EventArgs e)
         {
 
-            var svaPrisustva = db.PrisustvoIB180079.Include(x=> x.Nastava).ThenInclude(x=> x.Predmet).Include(x=> x.Student) .ToList();
+            var prisustva = db.PrisustvoIB180079
+                .Include(x=> x.Student)
+                .Include(x=> x.Nastava).ThenInclude(x=> x.Predmet)
+                .Where(x => x.Nastava.ProstorijaId == odabranaProstorija.Id)
+                .ToList();
 
 
-            var tblNastava = new dsPrisustvaIB180079.dsPrisustvaDataTable();
-            int brojac = 0;
+            var tblPrisustva = new dsIzvjestajIB180079.dsPrisustvaDataTable(); // RB Predmet 
 
-            for (int i = 0; i < svaPrisustva.Count(); i++)
+
+            for (int i = 0; i < prisustva.Count(); i++)
             {
-                if (svaPrisustva[i].Nastava.ProstorijaId == odabranaProstorija.Id)
-                {
-                    brojac++;
 
-                    var Red = tblNastava.NewdsPrisustvaRow();
+                var Red = tblPrisustva.NewdsPrisustvaRow();
 
-                    Red.Rb = brojac.ToString();
-                    Red.Predmet = svaPrisustva[i].Nastava.Predmet.ToString();
-                    Red.Vrijeme = svaPrisustva[i].Nastava.Vrijeme.ToString();
-                    Red.Broj_indeksa = svaPrisustva[i].Student.Indeks;
-                    Red.Ime_prezime = svaPrisustva[i].Student.ToString();
+                Red.Rb = (i + 1).ToString();
+                Red.Predmet = prisustva[i].Nastava.Predmet.ToString();
+                Red.Vrijeme = prisustva[i].Nastava.Vrijeme;
+                Red.BrojIndeksa = prisustva[i].Student.Indeks;
+                Red.ImePrezime = $"{prisustva[i].Student.Ime} {prisustva[i].Student.Prezime}";
 
-                    tblNastava.Rows.Add(Red);
+                tblPrisustva.Rows.Add( Red );
 
-                }
-               
 
             }
 
             var rds = new ReportDataSource();
-            rds.Value = tblNastava;
+
+            rds.Value = tblPrisustva;
             rds.Name = "dsPrisustva";
 
             reportViewer1.LocalReport.DataSources.Add(rds);
 
             var rpc = new ReportParameterCollection();
-            rpc.Add(new ReportParameter("naziv", odabranaProstorija.Naziv));
-            rpc.Add(new ReportParameter("broj", brojac.ToString()));
+
+            rpc.Add(new ReportParameter("prostorija", odabranaProstorija.Naziv));
+            rpc.Add(new ReportParameter("broj", prisustva.Count().ToString()));
 
             reportViewer1.LocalReport.SetParameters(rpc);
-
-
-
 
 
             reportViewer1.RefreshReport();
