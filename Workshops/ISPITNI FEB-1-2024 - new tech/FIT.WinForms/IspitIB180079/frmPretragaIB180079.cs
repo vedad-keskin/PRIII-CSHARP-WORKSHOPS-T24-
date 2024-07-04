@@ -27,24 +27,21 @@ namespace FIT.WinForms.IspitIB180079
         private void frmPretragaStudenataIB180079_Load(object sender, EventArgs e)
         {
             dgvStudenti.AutoGenerateColumns = false;
+
+
             cbDrzava.DataSource = db.DrzaveIB180079.ToList();
 
-            odabranaDrzava = cbDrzava.SelectedItem as DrzaveIB180079;
-
-
-            cbGrad.DataSource = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
+         
         }
 
         private void UcitajStudente()
         {
-            odabranaDrzava = cbDrzava.SelectedItem as DrzaveIB180079;
 
-            var grad = cbGrad.SelectedItem == null ? "Svi" : cbGrad.SelectedItem.ToString();
+            var grad = cbGrad.SelectedItem == null ? "x" : cbGrad.SelectedItem.ToString();
 
 
             studenti = db.Studenti.Include(x=> x.Grad).ThenInclude(x=> x.Drzava)
-                .Where(x => (x.Grad.Naziv == grad || grad == "Svi") &&
-                x.Grad.Drzava.Naziv == odabranaDrzava.Naziv)
+                .Where(x => (x.Grad.Naziv == grad)) 
                 .ToList();
 
             if (studenti != null)
@@ -63,10 +60,10 @@ namespace FIT.WinForms.IspitIB180079
 
         private void cbDrzava_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            UcitajStudente();
+            odabranaDrzava = cbDrzava.SelectedItem as DrzaveIB180079;
 
             cbGrad.DataSource = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
+
 
         }
 
