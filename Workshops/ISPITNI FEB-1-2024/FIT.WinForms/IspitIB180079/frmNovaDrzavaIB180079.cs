@@ -56,7 +56,7 @@ namespace FIT.WinForms.IspitIB180079
                     odabranaDrzava.Status = aktivan;
                     odabranaDrzava.Naziv = naziv;
 
-                    db.Entry(odabranaDrzava).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.DrzaveIB180079.Update(odabranaDrzava);
                 }
 
 
