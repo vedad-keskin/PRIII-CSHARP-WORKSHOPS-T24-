@@ -37,30 +37,17 @@ namespace FIT.WinForms.IspitIB180079
 
             if (drzave != null)
             {
-                var tblDrzave = new DataTable();
 
-                tblDrzave.Columns.Add("Zastava", typeof(Image));
-                tblDrzave.Columns.Add("Naziv");
-                tblDrzave.Columns.Add("Broj");
-                tblDrzave.Columns.Add("Aktivan");
 
                 for (int i = 0; i < drzave.Count(); i++)
                 {
-                    var drzava = drzave[i];
 
-                    var Red = tblDrzave.NewRow();
+                    drzave[i].BrojGradova = db.GradoviIB180079.Where(x => x.DrzavaId == drzave[i].Id).Count();
 
-                    Red["Zastava"] = Ekstenzije.ToImage(drzava.Zastava);
-                    Red["Naziv"] = drzava.ToString();
-                    Red["Broj"] = db.GradoviIB180079.Where(x => x.DrzavaId == drzava.Id).Count().ToString();
-                    Red["Aktivan"] = drzava.Status;
-
-                    tblDrzave.Rows.Add(Red);
                 }
 
-
                 dgvDrzave.DataSource = null;
-                dgvDrzave.DataSource = tblDrzave;
+                dgvDrzave.DataSource = drzave;
 
                 odabranaDrzava = drzave[0];
 
@@ -112,13 +99,15 @@ namespace FIT.WinForms.IspitIB180079
         }
 
         private void button2_Click(object sender, EventArgs e)
-        { 
-
-
+        {
             if (odabranaDrzava != null)
             {
                 frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
                 frmIzvjestaj.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("null je ");
             }
 
 

@@ -33,13 +33,13 @@
             tslVrijeme = new ToolStripStatusLabel();
             timer = new System.Windows.Forms.Timer(components);
             dgvDrzave = new DataGridView();
+            button1 = new Button();
+            button2 = new Button();
             Zastava = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
             Broj = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             Gradovi = new DataGridViewButtonColumn();
-            button1 = new Button();
-            button2 = new Button();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDrzave).BeginInit();
             SuspendLayout();
@@ -81,47 +81,6 @@
             dgvDrzave.CellClick += dgvDrzave_CellClick;
             dgvDrzave.CellContentClick += dgvDrzave_CellContentClick;
             // 
-            // Zastava
-            // 
-            Zastava.DataPropertyName = "Zastava";
-            Zastava.HeaderText = "Zastava";
-            Zastava.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            Zastava.Name = "Zastava";
-            Zastava.ReadOnly = true;
-            Zastava.Width = 60;
-            // 
-            // Naziv
-            // 
-            Naziv.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Naziv.DataPropertyName = "Naziv";
-            Naziv.HeaderText = "Država";
-            Naziv.Name = "Naziv";
-            Naziv.ReadOnly = true;
-            // 
-            // Broj
-            // 
-            Broj.DataPropertyName = "Broj";
-            Broj.HeaderText = "Broj gradova";
-            Broj.Name = "Broj";
-            Broj.ReadOnly = true;
-            // 
-            // Aktivan
-            // 
-            Aktivan.DataPropertyName = "Aktivan";
-            Aktivan.HeaderText = "Aktivna";
-            Aktivan.Name = "Aktivan";
-            Aktivan.ReadOnly = true;
-            Aktivan.Resizable = DataGridViewTriState.True;
-            Aktivan.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // Gradovi
-            // 
-            Gradovi.HeaderText = "";
-            Gradovi.Name = "Gradovi";
-            Gradovi.ReadOnly = true;
-            Gradovi.Text = "Gradovi";
-            Gradovi.UseColumnTextForButtonValue = true;
-            // 
             // button1
             // 
             button1.Location = new Point(660, 28);
@@ -141,6 +100,47 @@
             button2.Text = "Printaj";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // Zastava
+            // 
+            Zastava.DataPropertyName = "Zastava";
+            Zastava.HeaderText = "Zastava";
+            Zastava.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            Zastava.Name = "Zastava";
+            Zastava.ReadOnly = true;
+            Zastava.Width = 60;
+            // 
+            // Naziv
+            // 
+            Naziv.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Naziv.DataPropertyName = "Naziv";
+            Naziv.HeaderText = "Država";
+            Naziv.Name = "Naziv";
+            Naziv.ReadOnly = true;
+            // 
+            // Broj
+            // 
+            Broj.DataPropertyName = "BrojGradova";
+            Broj.HeaderText = "Broj gradova";
+            Broj.Name = "Broj";
+            Broj.ReadOnly = true;
+            // 
+            // Aktivan
+            // 
+            Aktivan.DataPropertyName = "Status";
+            Aktivan.HeaderText = "Aktivna";
+            Aktivan.Name = "Aktivan";
+            Aktivan.ReadOnly = true;
+            Aktivan.Resizable = DataGridViewTriState.True;
+            Aktivan.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Gradovi
+            // 
+            Gradovi.HeaderText = "";
+            Gradovi.Name = "Gradovi";
+            Gradovi.ReadOnly = true;
+            Gradovi.Text = "Gradovi";
+            Gradovi.UseColumnTextForButtonValue = true;
             // 
             // frmDrzaveIB180079
             // 

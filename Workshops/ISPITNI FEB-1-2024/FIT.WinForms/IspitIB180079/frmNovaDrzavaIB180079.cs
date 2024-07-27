@@ -17,7 +17,7 @@ namespace FIT.WinForms.IspitIB180079
     public partial class frmNovaDrzavaIB180079 : Form
     {
         DLWMSDbContext db = new DLWMSDbContext();
-        private DrzaveIB180079 odabranaDrzava; // ako je ovo null, onda znaci da je kreiranje 
+        private DrzaveIB180079 odabranaDrzava;
 
         public frmNovaDrzavaIB180079()
         {

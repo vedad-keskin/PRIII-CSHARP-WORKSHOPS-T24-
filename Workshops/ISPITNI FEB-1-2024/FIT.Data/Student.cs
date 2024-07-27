@@ -20,6 +20,9 @@ namespace FIT.Data
         public int GradId { get; set; }
         public GradoviIB180079 Grad { get; set; }
 
+        [NotMapped]
+        public string Prosjek { get; set; }
+        public string Drzava => Grad == null ? "" : Grad.Drzava.ToString();
         public override string ToString()
         {
             return $"{Ime} {Prezime}";
