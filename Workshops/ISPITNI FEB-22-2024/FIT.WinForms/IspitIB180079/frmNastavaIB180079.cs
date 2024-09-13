@@ -43,7 +43,9 @@ namespace FIT.WinForms.IspitIB180079
 
         private void UcitajNastave()
         {
-            nastave = db.NastavaIB180079.Where(x => x.ProstorijaId == odabranaProstorija.Id).ToList();
+            nastave = db.NastavaIB180079
+                .Where(x => x.ProstorijaId == odabranaProstorija.Id)
+                .ToList();
 
             if (nastave != null)
             {
