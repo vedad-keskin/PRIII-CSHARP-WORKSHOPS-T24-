@@ -101,6 +101,7 @@
                   <TextRun>
                     <Value>=Parameters!vrsta.Value</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
