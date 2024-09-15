@@ -2,6 +2,7 @@
 using FIT.Data.IspitIB180079;
 using FIT.Infrastructure;
 using FIT.WinForms.Helpers;
+using FIT.WinForms.Izvjestaji;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,6 +89,20 @@ namespace FIT.WinForms.IspitIB180079
 
                 }
 
+
+            }
+            if (e.ColumnIndex == 6)
+            {
+                frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranoUvjerenje);
+
+                if(frmIzvjestaj.ShowDialog() == DialogResult.OK)
+                {
+                    odabranoUvjerenje.Printano = true;
+                    db.StudentiUvjerenjaIB180079.Update(odabranoUvjerenje);
+                    db.SaveChanges();
+                    UcitajUvjerenja();
+
+                }
 
             }
         }

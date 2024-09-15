@@ -36,20 +36,23 @@
             reportViewer1.Dock = DockStyle.Fill;
             reportViewer1.LocalReport.ReportEmbeddedResource = "FIT.WinForms.Izvjestaji.rptUvjerenje.rdlc";
             reportViewer1.Location = new Point(0, 0);
+            reportViewer1.Margin = new Padding(3, 4, 3, 4);
             reportViewer1.Name = "ReportViewer";
             reportViewer1.ServerReport.BearerToken = null;
-            reportViewer1.Size = new Size(800, 450);
+            reportViewer1.Size = new Size(914, 600);
             reportViewer1.TabIndex = 0;
             // 
             // frmIzvjestaji
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(reportViewer1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmIzvjestaji";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmIzvjestaji";
+            FormClosed += frmIzvjestaji_FormClosed;
             Load += frmIzvjestaji_Load;
             ResumeLayout(false);
         }
