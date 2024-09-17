@@ -41,11 +41,10 @@ namespace FIT.WinForms.IspitIB180079
 
             studenti = db.Studenti
                 .Include(x => x.Spol)
-                .Where(x => (x.Spol.Naziv == spol.Naziv) &&
-                (x.DatumRodjenja >= datumOd && x.DatumRodjenja <= datumDo) &&
-                (x.Aktivan == aktivan) &&
-                (x.Ime.ToLower().Contains(imeprezime) || x.Prezime.ToLower().Contains(imeprezime))
-                )
+                .Where(x => x.SpolId == spol.Id)
+                .Where(x => x.Aktivan == aktivan)
+                .Where(x => x.DatumRodjenja >= datumOd && x.DatumRodjenja <= datumDo)
+                .Where(x => x.Ime.ToLower().Contains(imeprezime) || x.Prezime.ToLower().Contains(imeprezime))
                 .ToList();
 
             for (int i = 0; i < studenti.Count(); i++)
