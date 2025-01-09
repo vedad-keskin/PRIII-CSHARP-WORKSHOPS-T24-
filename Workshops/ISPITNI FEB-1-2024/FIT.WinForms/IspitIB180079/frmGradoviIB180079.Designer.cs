@@ -40,25 +40,24 @@
             Status = new DataGridViewButtonColumn();
             err = new ErrorProvider(components);
             groupBox1 = new GroupBox();
-            label2 = new Label();
-            txtBroj = new TextBox();
-            err2 = new ErrorProvider(components);
-            chbStatus = new CheckBox();
-            btnGenerisi = new Button();
-            label3 = new Label();
             txtInfo = new TextBox();
+            btnGenerisi = new Button();
+            chbStatus = new CheckBox();
+            txtBroj = new TextBox();
+            label3 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbZastava).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvGradovi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)err2).BeginInit();
             SuspendLayout();
             // 
             // pbZastava
             // 
-            pbZastava.Location = new Point(12, 12);
+            pbZastava.Location = new Point(14, 16);
+            pbZastava.Margin = new Padding(3, 4, 3, 4);
             pbZastava.Name = "pbZastava";
-            pbZastava.Size = new Size(158, 94);
+            pbZastava.Size = new Size(181, 125);
             pbZastava.SizeMode = PictureBoxSizeMode.StretchImage;
             pbZastava.TabIndex = 0;
             pbZastava.TabStop = false;
@@ -66,33 +65,35 @@
             // lblDrzava
             // 
             lblDrzava.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
-            lblDrzava.Location = new Point(186, 52);
+            lblDrzava.Location = new Point(213, 69);
             lblDrzava.Name = "lblDrzava";
-            lblDrzava.Size = new Size(403, 54);
+            lblDrzava.Size = new Size(461, 72);
             lblDrzava.TabIndex = 1;
             lblDrzava.TextAlign = ContentAlignment.BottomLeft;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 127);
+            label1.Location = new Point(14, 169);
             label1.Name = "label1";
-            label1.Size = new Size(152, 15);
+            label1.Size = new Size(192, 20);
             label1.TabIndex = 2;
             label1.Text = "Unesite naziv novog grada :";
             // 
             // txtNaziv
             // 
-            txtNaziv.Location = new Point(186, 124);
+            txtNaziv.Location = new Point(213, 165);
+            txtNaziv.Margin = new Padding(3, 4, 3, 4);
             txtNaziv.Name = "txtNaziv";
-            txtNaziv.Size = new Size(285, 23);
+            txtNaziv.Size = new Size(325, 27);
             txtNaziv.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(494, 124);
+            button1.Location = new Point(565, 165);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(95, 23);
+            button1.Size = new Size(109, 31);
             button1.TabIndex = 4;
             button1.Text = "Dodaj";
             button1.UseVisualStyleBackColor = true;
@@ -104,12 +105,14 @@
             dgvGradovi.AllowUserToDeleteRows = false;
             dgvGradovi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvGradovi.Columns.AddRange(new DataGridViewColumn[] { Naziv, Aktivan, Status });
-            dgvGradovi.Location = new Point(12, 155);
+            dgvGradovi.Location = new Point(14, 207);
+            dgvGradovi.Margin = new Padding(3, 4, 3, 4);
             dgvGradovi.Name = "dgvGradovi";
             dgvGradovi.ReadOnly = true;
+            dgvGradovi.RowHeadersWidth = 51;
             dgvGradovi.RowTemplate.Height = 25;
             dgvGradovi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvGradovi.Size = new Size(577, 150);
+            dgvGradovi.Size = new Size(659, 200);
             dgvGradovi.TabIndex = 5;
             dgvGradovi.CellContentClick += dgvGradovi_CellContentClick;
             // 
@@ -118,6 +121,7 @@
             Naziv.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Naziv.DataPropertyName = "Naziv";
             Naziv.HeaderText = "Naziv grada";
+            Naziv.MinimumWidth = 6;
             Naziv.Name = "Naziv";
             Naziv.ReadOnly = true;
             // 
@@ -125,16 +129,20 @@
             // 
             Aktivan.DataPropertyName = "Status";
             Aktivan.HeaderText = "Aktivan";
+            Aktivan.MinimumWidth = 6;
             Aktivan.Name = "Aktivan";
             Aktivan.ReadOnly = true;
+            Aktivan.Width = 125;
             // 
             // Status
             // 
             Status.HeaderText = "";
+            Status.MinimumWidth = 6;
             Status.Name = "Status";
             Status.ReadOnly = true;
             Status.Text = "Promijeni status";
             Status.UseColumnTextForButtonValue = true;
+            Status.Width = 125;
             // 
             // err
             // 
@@ -148,75 +156,77 @@
             groupBox1.Controls.Add(txtBroj);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(12, 311);
+            groupBox1.Location = new Point(14, 415);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(577, 193);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(659, 257);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Generator";
             // 
-            // label2
+            // txtInfo
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 15);
-            label2.TabIndex = 0;
-            label2.Text = "Broj gradova:";
-            // 
-            // txtBroj
-            // 
-            txtBroj.Location = new Point(89, 16);
-            txtBroj.Name = "txtBroj";
-            txtBroj.Size = new Size(97, 23);
-            txtBroj.TabIndex = 1;
-            // 
-            // err2
-            // 
-            err2.ContainerControl = this;
-            // 
-            // chbStatus
-            // 
-            chbStatus.AutoSize = true;
-            chbStatus.Location = new Point(192, 19);
-            chbStatus.Name = "chbStatus";
-            chbStatus.Size = new Size(63, 19);
-            chbStatus.TabIndex = 2;
-            chbStatus.Text = "Aktivni";
-            chbStatus.UseVisualStyleBackColor = true;
+            txtInfo.Location = new Point(7, 96);
+            txtInfo.Margin = new Padding(3, 4, 3, 4);
+            txtInfo.Multiline = true;
+            txtInfo.Name = "txtInfo";
+            txtInfo.Size = new Size(645, 152);
+            txtInfo.TabIndex = 4;
             // 
             // btnGenerisi
             // 
-            btnGenerisi.Location = new Point(261, 16);
+            btnGenerisi.Location = new Point(298, 21);
+            btnGenerisi.Margin = new Padding(3, 4, 3, 4);
             btnGenerisi.Name = "btnGenerisi";
-            btnGenerisi.Size = new Size(105, 23);
+            btnGenerisi.Size = new Size(120, 31);
             btnGenerisi.TabIndex = 3;
             btnGenerisi.Text = "Generiši";
             btnGenerisi.UseVisualStyleBackColor = true;
             btnGenerisi.Click += btnGenerisi_Click;
             // 
+            // chbStatus
+            // 
+            chbStatus.AutoSize = true;
+            chbStatus.Location = new Point(219, 25);
+            chbStatus.Margin = new Padding(3, 4, 3, 4);
+            chbStatus.Name = "chbStatus";
+            chbStatus.Size = new Size(76, 24);
+            chbStatus.TabIndex = 2;
+            chbStatus.Text = "Aktivni";
+            chbStatus.UseVisualStyleBackColor = true;
+            // 
+            // txtBroj
+            // 
+            txtBroj.Location = new Point(102, 21);
+            txtBroj.Margin = new Padding(3, 4, 3, 4);
+            txtBroj.Name = "txtBroj";
+            txtBroj.Size = new Size(110, 27);
+            txtBroj.TabIndex = 1;
+            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 54);
+            label3.Location = new Point(7, 72);
             label3.Name = "label3";
-            label3.Size = new Size(31, 15);
+            label3.Size = new Size(38, 20);
             label3.TabIndex = 0;
             label3.Text = "Info:";
             // 
-            // txtInfo
+            // label2
             // 
-            txtInfo.Location = new Point(6, 72);
-            txtInfo.Multiline = true;
-            txtInfo.Name = "txtInfo";
-            txtInfo.Size = new Size(565, 115);
-            txtInfo.TabIndex = 4;
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(98, 20);
+            label2.TabIndex = 0;
+            label2.Text = "Broj gradova:";
             // 
             // frmGradoviIB180079
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(601, 516);
+            ClientSize = new Size(687, 688);
             Controls.Add(groupBox1);
             Controls.Add(dgvGradovi);
             Controls.Add(button1);
@@ -224,6 +234,7 @@
             Controls.Add(label1);
             Controls.Add(lblDrzava);
             Controls.Add(pbZastava);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmGradoviIB180079";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Podaci o gradu";
@@ -234,7 +245,6 @@
             ((System.ComponentModel.ISupportInitialize)err).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)err2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -258,6 +268,5 @@
         private TextBox txtBroj;
         private Label label3;
         private Label label2;
-        private ErrorProvider err2;
     }
 }

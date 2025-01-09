@@ -66,7 +66,7 @@ namespace FIT.WinForms.IspitIB180079
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmNovaDrzavaIB180079 frmNova = new frmNovaDrzavaIB180079();
+            var frmNova = new frmNovaDrzavaIB180079();
 
             if (frmNova.ShowDialog() == DialogResult.OK)
             {
@@ -81,7 +81,7 @@ namespace FIT.WinForms.IspitIB180079
 
             if (e.ColumnIndex == 4)
             {
-                frmGradoviIB180079 frmGradovi = new frmGradoviIB180079(odabranaDrzava);
+                var frmGradovi = new frmGradoviIB180079(odabranaDrzava);
                 if (frmGradovi.ShowDialog() == DialogResult.OK)
                 {
                     UcitajDrzave();
@@ -89,7 +89,7 @@ namespace FIT.WinForms.IspitIB180079
             }
             else
             {
-                frmNovaDrzavaIB180079 frmModifikacija = new frmNovaDrzavaIB180079(odabranaDrzava);
+                var frmModifikacija = new frmNovaDrzavaIB180079(odabranaDrzava);
                 if (frmModifikacija.ShowDialog() == DialogResult.OK)
                 {
                     UcitajDrzave();
@@ -100,15 +100,9 @@ namespace FIT.WinForms.IspitIB180079
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (odabranaDrzava != null)
-            {
-                frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
-                frmIzvjestaj.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("null je ");
-            }
+
+           var frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
+           frmIzvjestaj.ShowDialog();
 
 
         }

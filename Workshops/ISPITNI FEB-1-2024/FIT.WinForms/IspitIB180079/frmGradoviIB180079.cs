@@ -35,7 +35,9 @@ namespace FIT.WinForms.IspitIB180079
 
         private void UcitajGradove()
         {
-            gradovi = db.GradoviIB180079.Where(x => x.DrzavaId == odabranaDrzava.Id).ToList();
+            gradovi = db.GradoviIB180079
+                .Where(x => x.DrzavaId == odabranaDrzava.Id)
+                .ToList();
 
             if (gradovi != null)
             {
@@ -43,14 +45,7 @@ namespace FIT.WinForms.IspitIB180079
                 dgvGradovi.DataSource = null;
                 dgvGradovi.DataSource = gradovi;
             }
-            if(gradovi.Count() == 0)
-            {
-                btnGenerisi.Enabled = false;
-            }
-            else
-            {
-                btnGenerisi.Enabled = true;
-            }
+           
         }
 
         private void UcitajInfo()
@@ -65,16 +60,27 @@ namespace FIT.WinForms.IspitIB180079
 
             if (e.ColumnIndex == 2)
             {
-                if (odabraniGrad.Status)
-                {
-                    odabraniGrad.Status = false;
-                }
-                else
-                {
-                    odabraniGrad.Status = true;
-                }
+                // 1. nacin
+
+                //if (odabraniGrad.Status)
+                //{
+                //    odabraniGrad.Status = false;
+                //}
+                //else
+                //{
+                //    odabraniGrad.Status = true;
+                //}
+
+                // 2. nacin
+
+                //odabraniGrad = odabraniGrad.Status ? false : true;
+
+                // 3. nacin
+
+                odabraniGrad.Status = !odabraniGrad.Status;
 
                 db.GradoviIB180079.Update(odabraniGrad);
+                db.SaveChanges();
             }
             UcitajGradove();
         }
@@ -125,6 +131,7 @@ namespace FIT.WinForms.IspitIB180079
             // -- sve sto je vezano za combo box
             // -- postavljanje threada
             // -- pokretanje threada
+            // -- sve vezano za combo box 
 
             if (ValidirajMultithreading())
             {
@@ -158,7 +165,7 @@ namespace FIT.WinForms.IspitIB180079
                 db.GradoviIB180079.Add(noviGrad);
                 db.SaveChanges();
 
-                info += $"{DateTime.Now.ToString("dd:MM")} {DateTime.Now.ToString("HH:mm:ss")} -> dodat grad Grad {i+1}. za državu {odabranaDrzava} {Environment.NewLine}";
+                info += $"{DateTime.Now.ToString("dd:MM")} {DateTime.Now.ToString("HH:mm:ss")} -> dodat grad {noviGrad.Naziv}. za državu {odabranaDrzava} {Environment.NewLine}";
 
             }
 
@@ -180,7 +187,7 @@ namespace FIT.WinForms.IspitIB180079
 
         private bool ValidirajMultithreading()
         {
-            return Validator.ProvjeriUnos(txtBroj,err2,Kljucevi.ReqiredValue);
+            return Validator.ProvjeriUnos(txtBroj,err,Kljucevi.ReqiredValue);
         }
     }
 }

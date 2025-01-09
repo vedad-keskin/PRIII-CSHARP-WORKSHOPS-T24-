@@ -34,7 +34,7 @@ namespace FIT.WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmProstorijeIB180079 frmProstorije = new frmProstorijeIB180079();
+            var frmProstorije = new frmProstorijeIB180079();
             frmProstorije.ShowDialog();
         }
     }

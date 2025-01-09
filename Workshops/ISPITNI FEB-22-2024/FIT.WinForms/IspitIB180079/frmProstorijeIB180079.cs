@@ -51,7 +51,7 @@ namespace FIT.WinForms.IspitIB180079
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmNovaProstorijaIB180079 frmNovaProstorija = new frmNovaProstorijaIB180079();
+            var frmNovaProstorija = new frmNovaProstorijaIB180079();
             if (frmNovaProstorija.ShowDialog() == DialogResult.OK)
             {
                 UcitajProstorije();
@@ -88,7 +88,7 @@ namespace FIT.WinForms.IspitIB180079
             if (e.ColumnIndex == 5)
             {
 
-                frmNastavaIB180079 frmNastava = new frmNastavaIB180079(odabranaProstorija);
+                var frmNastava = new frmNastavaIB180079(odabranaProstorija);
                 if (frmNastava.ShowDialog() == DialogResult.OK)
                 {
                     UcitajProstorije();
@@ -97,7 +97,7 @@ namespace FIT.WinForms.IspitIB180079
             }
             else if (e.ColumnIndex == 6)
             {
-                frmPrisustvoIB180079 frmPrisustvo = new frmPrisustvoIB180079(odabranaProstorija);
+                var frmPrisustvo = new frmPrisustvoIB180079(odabranaProstorija);
                 frmPrisustvo.ShowDialog();
             }
 
@@ -108,7 +108,7 @@ namespace FIT.WinForms.IspitIB180079
 
             var odabranaProstorija = dgvProstorije.SelectedRows[0].DataBoundItem as ProstorijeIB180079;
 
-            frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranaProstorija);
+            var frmIzvjestaj = new frmIzvjestaji(odabranaProstorija);
             frmIzvjestaj.ShowDialog();
 
         }
