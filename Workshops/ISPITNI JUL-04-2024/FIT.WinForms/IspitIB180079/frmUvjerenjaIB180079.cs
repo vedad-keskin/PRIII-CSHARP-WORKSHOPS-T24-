@@ -65,7 +65,7 @@ namespace FIT.WinForms.IspitIB180079
 
         private void btnNovi_Click(object sender, EventArgs e)
         {
-            frmNovoUvjerenjeIB180079 frmNovo = new frmNovoUvjerenjeIB180079(odabraniStudent);
+            var frmNovo = new frmNovoUvjerenjeIB180079(odabraniStudent);
 
             if (frmNovo.ShowDialog() == DialogResult.OK)
             {
@@ -93,7 +93,7 @@ namespace FIT.WinForms.IspitIB180079
             }
             if (e.ColumnIndex == 6)
             {
-                frmIzvjestaji frmIzvjestaj = new frmIzvjestaji(odabranoUvjerenje);
+                var frmIzvjestaj = new frmIzvjestaji(odabranoUvjerenje);
 
                 if(frmIzvjestaj.ShowDialog() == DialogResult.OK)
                 {

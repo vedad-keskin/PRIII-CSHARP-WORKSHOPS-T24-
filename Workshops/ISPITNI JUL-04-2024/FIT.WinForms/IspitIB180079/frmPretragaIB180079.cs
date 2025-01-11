@@ -99,13 +99,13 @@ namespace FIT.WinForms.IspitIB180079
 
             if(e.ColumnIndex < 5)
             {
-                frmStudentInfoIB180079 frmInfo = new frmStudentInfoIB180079(odabraniStudent);
+                var frmInfo = new frmStudentInfoIB180079(odabraniStudent);
                 frmInfo.ShowDialog();
             }
 
             if(e.ColumnIndex == 5)
             {
-                frmUvjerenjaIB180079 frmUvjerenja = new frmUvjerenjaIB180079(odabraniStudent);
+                var frmUvjerenja = new frmUvjerenjaIB180079(odabraniStudent);
                 frmUvjerenja.ShowDialog();
             }
 
