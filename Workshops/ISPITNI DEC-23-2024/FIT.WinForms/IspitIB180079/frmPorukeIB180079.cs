@@ -97,17 +97,20 @@ namespace FIT.WinForms.IspitIB180079
         private async void btnDodaj_Click(object sender, EventArgs e)
         {
             // 1. dio
-            // -- async
+            // -- async/await/task ILI kreiranje i pokretanje threada
             // -- validacija
-            // -- kreiranje threada
-            // -- pokretanje threada
-            // -- sve vezano za combo box
+            // -- sve vezano za combobox
+
 
             if (ValidirajMultithreading())
             {
-                var predmet = cbPredmet.SelectedItem as PredmetiIB180079;
 
+                var predmet = cbPredmet.SelectedItem as PredmetiIB180079;
+                
                 await Task.Run(() => GenerisiPoruke(predmet));
+
+                //Thread thread = new Thread(() => GenerisiPoruke(predmet));
+                //thread.Start();
 
             }
 

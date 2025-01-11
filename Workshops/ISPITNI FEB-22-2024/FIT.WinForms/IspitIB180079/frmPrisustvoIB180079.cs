@@ -114,21 +114,20 @@ namespace FIT.WinForms.IspitIB180079
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            // 1. dio 
-            // -- dodamo async
-            // -- postavljanje threada
-            // -- pokretanje threada
-            // -- sve sto je vezano za combobox radimo ovdje
+             // 1. dio
+            // -- async/await/task ILI kreiranje i pokretanje threada
             // -- validacija
+            // -- sve vezano za combobox
 
             var student = cbStudent.SelectedItem as Student;
             var nastava = cbNastava.SelectedItem as NastavaIB180079;
 
             if (Validiraj())
             {
+                await Task.Run(() => GenerisiPrisustva(student, nastava));
 
-                Thread thread = new Thread(() => GenerisiPrisustva(student,nastava));
-                thread.Start();
+                //Thread thread = new Thread(() => GenerisiPrisustva(student,nastava));
+                //thread.Start();
             }
 
 

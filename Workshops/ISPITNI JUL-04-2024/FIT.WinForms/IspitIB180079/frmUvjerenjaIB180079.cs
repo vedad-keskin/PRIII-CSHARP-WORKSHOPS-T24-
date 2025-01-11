@@ -109,19 +109,21 @@ namespace FIT.WinForms.IspitIB180079
 
         private async void btnDodaj_Click(object sender, EventArgs e)
         {
-            // 1. DIO
-            // -- async
-            // -- postavaljanje i pokretanje threada
+            // 1. dio
+            // -- async/await/task ILI kreiranje i pokretanje threada
             // -- validacija
-            // -- sve sto je vezano za combo box
+            // -- sve vezano za combobox
 
             var vrsta = cbVrsta.SelectedItem.ToString();
 
 
             if (ValidrajMultithreading())
             {
-                Thread t1 = new Thread(() => GenerisiUvjerenja(vrsta));
-                t1.Start();
+
+                await Task.Run(() => GenerisiUvjerenja(vrsta));
+
+                //Thread t1 = new Thread(() => GenerisiUvjerenja(vrsta));
+                //t1.Start();
             }
 
         }

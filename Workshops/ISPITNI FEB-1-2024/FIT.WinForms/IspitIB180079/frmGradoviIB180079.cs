@@ -126,17 +126,17 @@ namespace FIT.WinForms.IspitIB180079
         private async void btnGenerisi_Click(object sender, EventArgs e)
         {
             // 1. dio
+            // -- async/await/task ILI kreiranje i pokretanje threada
             // -- validacija
-            // -- async 
-            // -- sve sto je vezano za combo box
-            // -- postavljanje threada
-            // -- pokretanje threada
-            // -- sve vezano za combo box 
+            // -- sve vezano za combobox
 
             if (ValidirajMultithreading())
             {
-                Thread thread = new Thread(() => GenerisiGradove());
-                thread.Start();
+
+                await Task.Run(() => GenerisiGradove());
+
+                //Thread thread = new Thread(() => GenerisiGradove());
+                //thread.Start();
             }
         }
 
