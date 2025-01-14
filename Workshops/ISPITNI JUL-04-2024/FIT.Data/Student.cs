@@ -1,11 +1,11 @@
-﻿using FIT.Data.IspitIB180079;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 
 namespace FIT.Data
 {
     public class Student
     {
+        
         public int Id { get; set; }
         public string Indeks { get; set; }
         public string Lozinka { get; set; }
@@ -16,20 +16,21 @@ namespace FIT.Data
         public DateTime DatumRodjenja { get; set; }
         public bool Aktivan { get; set; }        
         public int SemestarId { get; set; }
+        public string Spol { get; set; }
 
-
-        public int SpolId { get; set; }
-        public SpolIB180079 Spol { get; set; }
 
 
         public string ImePrezime => $"{Ime} {Prezime}";
 
+
         [NotMapped]
         public double Prosjek { get; set; }
 
+
+
         public override string ToString()
         {
-            return $"{Indeks} {Ime} {Prezime}";
+            return $"{Indeks} - {Ime} {Prezime}";
         }
     }
 }

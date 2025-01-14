@@ -1,7 +1,5 @@
 ﻿using FIT.Data;
-using FIT.Data.IspitIB180079;
 using FIT.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,26 +24,37 @@ namespace FIT.WinForms.IspitIB180079
         private void frmPretragaIB180079_Load(object sender, EventArgs e)
         {
             dgvStudenti.AutoGenerateColumns = false;
-            cbSpol.DataSource = db.Spol.ToList();
 
+            cbSpol.SelectedIndex = 0;
+
+        }
+
+        private void chbAktivan_CheckedChanged(object sender, EventArgs e)
+        {
+            UcitajStudente();
         }
 
         private void UcitajStudente()
         {
-            var spol = cbSpol.SelectedItem as SpolIB180079;
+
+            var aktivan = chbAktivan.Checked;
+
+            var spol = cbSpol.SelectedItem.ToString(); // "Svi" "Muski"
+
+            var imePrezime = txtImePrezime.Text.ToLower(); // "Jasmin jasmin
+
             var datumOd = dtpDatumOd.Value;
             var datumDo = dtpDatumDo.Value;
-            var aktivan = chbAktivan.Checked;
-            var imeprezime = txtImePrezime.Text.ToLower();
+
 
 
             studenti = db.Studenti
-                .Include(x => x.Spol)
-                .Where(x => x.SpolId == spol.Id)
                 .Where(x => x.Aktivan == aktivan)
+                .Where(x => x.Spol == spol || spol == "Svi")
+                .Where(x => x.Ime.ToLower().Contains(imePrezime) || x.Prezime.ToLower().Contains(imePrezime))
                 .Where(x => x.DatumRodjenja >= datumOd && x.DatumRodjenja <= datumDo)
-                .Where(x => x.Ime.ToLower().Contains(imeprezime) || x.Prezime.ToLower().Contains(imeprezime))
                 .ToList();
+
 
             for (int i = 0; i < studenti.Count(); i++)
             {
@@ -56,17 +65,27 @@ namespace FIT.WinForms.IspitIB180079
                     .Average(x => x.Ocjena);
             }
 
+            // ? : 
+
 
             if (studenti != null)
             {
 
                 dgvStudenti.DataSource = null;
                 dgvStudenti.DataSource = studenti;
+
             }
+
+
 
         }
 
         private void cbSpol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UcitajStudente();
+        }
+
+        private void txtImePrezime_TextChanged(object sender, EventArgs e)
         {
             UcitajStudente();
         }
@@ -79,38 +98,32 @@ namespace FIT.WinForms.IspitIB180079
         private void dtpDatumDo_ValueChanged(object sender, EventArgs e)
         {
             UcitajStudente();
-
         }
 
-        private void chbAktivan_CheckedChanged(object sender, EventArgs e)
+        private void dgvStudenti_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            UcitajStudente();
-        }
 
-        private void txtImePrezime_TextChanged(object sender, EventArgs e)
-        {
-            UcitajStudente();
-        }
-
-        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            //var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
 
             var odabraniStudent = studenti[e.RowIndex];
 
-            if(e.ColumnIndex < 5)
+
+            if (e.ColumnIndex < 6)
             {
                 var frmInfo = new frmStudentInfoIB180079(odabraniStudent);
+
                 frmInfo.ShowDialog();
             }
-
-            if(e.ColumnIndex == 5)
+            else
             {
                 var frmUvjerenja = new frmUvjerenjaIB180079(odabraniStudent);
+
                 frmUvjerenja.ShowDialog();
             }
 
+
         }
 
-
+ 
     }
 }

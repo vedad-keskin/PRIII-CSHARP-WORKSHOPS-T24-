@@ -12,6 +12,7 @@ namespace FIT.Data.IspitIB180079
         public string Naziv { get; set; }
         public int Semestar { get; set; }
 
+
         public override string ToString()
         {
             return Naziv;

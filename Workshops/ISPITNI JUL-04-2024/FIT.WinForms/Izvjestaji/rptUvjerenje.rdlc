@@ -5,39 +5,30 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="ExecutionTime">
+          <Textbox Name="Textbox2">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>U Mostaru, </Value>
+                    <Value>=Parameters!vrsta.Value</Value>
                     <Style>
-                      <FontWeight>Normal</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Globals!ExecutionTime</Value>
-                    <Style>
-                      <FontWeight>Normal</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value> godine</Value>
-                    <Style>
-                      <FontWeight>Normal</FontWeight>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>ExecutionTime</rd:DefaultName>
-            <Top>7.29403cm</Top>
-            <Left>0.3937cm</Left>
-            <Height>0.6cm</Height>
-            <Width>8.90821cm</Width>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.51083cm</Top>
+            <Left>5.49487cm</Left>
+            <Height>1.108cm</Height>
+            <Width>5.56917cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -48,11 +39,11 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Line Name="Line2">
-            <Top>8.86036cm</Top>
-            <Left>14.57536cm</Left>
+          <Line Name="Line1">
+            <Top>0.10583cm</Top>
+            <Left>0.35137cm</Left>
             <Height>0cm</Height>
-            <Width>4.55317cm</Width>
+            <Width>15.57583cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -60,7 +51,31 @@
               </Border>
             </Style>
           </Line>
-          <Textbox Name="Textbox3">
+          <Line Name="Line2">
+            <Top>6.82774cm</Top>
+            <Left>0.46708cm</Left>
+            <Height>0cm</Height>
+            <Width>15.57583cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line3">
+            <Top>6.30665cm</Top>
+            <Left>12.3317cm</Left>
+            <Height>0cm</Height>
+            <Width>3.5955cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox4">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -76,12 +91,12 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>7.29403cm</Top>
-            <Left>15.63369cm</Left>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>5.25217cm</Top>
+            <Left>12.98787cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
-            <ZIndex>2</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -99,73 +114,18 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!vrsta.Value</Value>
-                    <Style>
-                      <FontSize>12pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>0.48967cm</Top>
-            <Left>7.61154cm</Left>
-            <Height>1.15033cm</Height>
-            <Width>6.437cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox6">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
                     <Value>Uvjerenje se izdaje na zahtjev studenta </Value>
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=Parameters!imePrezime.Value</Value>
+                    <Value>=Parameters!student.Value</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> (</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>=Parameters!indeks.Value</Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>) </Value>
-                    <Style>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value>u svrhu </Value>
-                    <Style>
-                      <FontWeight>Normal</FontWeight>
-                    </Style>
+                    <Value> u svrhu </Value>
+                    <Style />
                   </TextRun>
                   <TextRun>
                     <Value>=Parameters!svrha.Value</Value>
@@ -188,44 +148,24 @@
                 </TextRuns>
                 <Style />
               </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>1.9925cm</Top>
-            <Left>0.3937cm</Left>
-            <Height>1.362cm</Height>
-            <Width>18.73483cm</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Line Name="Line4">
-            <Top>9.09963cm</Top>
-            <Left>0.50683cm</Left>
-            <Height>0cm</Height>
-            <Width>18.6217cm</Width>
-            <ZIndex>5</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
-          <Textbox Name="Textbox7">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
                     <Value>Navedeni student ima status </Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Parameters!aktivan.Value</Value>
@@ -234,28 +174,34 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>, položio je </Value>
-                    <Style />
+                    <Value> položio je </Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Parameters!brojIspita.Value</Value>
+                    <Value>=Parameters!broj.Value</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value> ispita(</Value>
-                    <Style />
+                    <Value> ispita (</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Parameters!ispiti.Value</Value>
+                    <Value>=Parameters!predmetiInfo.Value</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>) a njegova prosječna ocjena iznosi </Value>
-                    <Style />
+                    <Value>), a njihova prosječna vrijednost ocjena iznosi </Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
                   </TextRun>
                   <TextRun>
                     <Value>=Parameters!prosjek.Value</Value>
@@ -263,16 +209,56 @@
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
+                  <TextRun>
+                    <Value>.</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>U Mostaru, </Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!datum.Value</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, godine.</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>3.81283cm</Top>
-            <Left>0.50683cm</Left>
-            <Height>3.05533cm</Height>
-            <Width>18.6217cm</Width>
-            <ZIndex>6</ZIndex>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>1.929cm</Top>
+            <Left>0.69003cm</Left>
+            <Height>3.14678cm</Height>
+            <Width>15.23717cm</Width>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -284,38 +270,38 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.58253in</Height>
+        <Height>2.75753in</Height>
         <Style />
       </Body>
-      <Width>7.71667in</Width>
+      <Width>6.58925in</Width>
       <Page>
         <PageHeader>
-          <Height>2.71215cm</Height>
+          <Height>2.88853cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Image Name="Image1">
+            <Image Name="fit">
               <Source>Embedded</Source>
               <Value>logofit</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.3302cm</Top>
-              <Left>0.3937cm</Left>
-              <Height>1.88524cm</Height>
-              <Width>3.42617cm</Width>
+              <Top>0.28787cm</Top>
+              <Left>0.35137cm</Left>
+              <Height>2.05033cm</Height>
+              <Width>2.98167cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
             </Image>
-            <Image Name="Image2">
+            <Image Name="unmo">
               <Source>Embedded</Source>
               <Value>logounmo</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.4572cm</Top>
-              <Left>17.0147cm</Left>
-              <Height>2.21967cm</Height>
-              <Width>2.11383cm</Width>
+              <Top>0.28787cm</Top>
+              <Left>13.6652cm</Left>
+              <Height>2.45956cm</Height>
+              <Width>2.262cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -323,7 +309,7 @@
                 </Border>
               </Style>
             </Image>
-            <Textbox Name="Textbox4">
+            <Textbox Name="Textbox1">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -343,7 +329,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Univerzitet "Džemal Bijedić"</Value>
+                      <Value>Univerzitet Džemal Bijedić</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -376,11 +362,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>0.4572cm</Top>
-              <Left>5.7277cm</Left>
-              <Height>1.75824cm</Height>
-              <Width>9.95067cm</Width>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.28787cm</Top>
+              <Left>3.97087cm</Left>
+              <Height>2.05033cm</Height>
+              <Width>9.14633cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -392,18 +378,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Line Name="Line3">
-              <Top>2.71215cm</Top>
-              <Left>0.3937cm</Left>
-              <Height>0cm</Height>
-              <Width>18.73483cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-            </Line>
           </ReportItems>
           <Style>
             <Border>
@@ -412,11 +386,11 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.33441cm</Height>
+          <Height>1.22767cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="PageNumber">
+            <Textbox Name="OverallPageNumber">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -431,7 +405,7 @@
                       <Style />
                     </TextRun>
                     <TextRun>
-                      <Value>=Globals!OverallPageNumber</Value>
+                      <Value>=Globals!OverallTotalPages</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -440,11 +414,11 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>0.35341cm</Top>
-              <Left>12.43753cm</Left>
+              <rd:DefaultName>OverallPageNumber</rd:DefaultName>
+              <Top>0.17639cm</Top>
+              <Left>9.2837cm</Left>
               <Height>0.6cm</Height>
-              <Width>6.691cm</Width>
+              <Width>6.8815cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -455,17 +429,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Line Name="Line1">
-              <Left>0.3937cm</Left>
-              <Height>0cm</Height>
-              <Width>17.46483cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                </Border>
-              </Style>
-            </Line>
           </ReportItems>
           <Style>
             <Border>
@@ -485,11 +448,11 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="imePrezime">
+    <ReportParameter Name="vrsta">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="indeks">
+    <ReportParameter Name="student">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -501,11 +464,11 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="brojIspita">
+    <ReportParameter Name="broj">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="ispiti">
+    <ReportParameter Name="predmetiInfo">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -513,7 +476,7 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="vrsta">
+    <ReportParameter Name="datum">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -526,12 +489,12 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>imePrezime</ParameterName>
+          <ParameterName>vrsta</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>indeks</ParameterName>
+          <ParameterName>student</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
@@ -546,12 +509,12 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>brojIspita</ParameterName>
+          <ParameterName>broj</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>ispiti</ParameterName>
+          <ParameterName>predmetiInfo</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
@@ -561,7 +524,7 @@
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>vrsta</ParameterName>
+          <ParameterName>datum</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

@@ -16,6 +16,5 @@ namespace FIT.Data.IspitIB180079
         public string Svrha { get; set; }
         public byte[] Uplatnica { get; set; }
         public bool Printano { get; set; }
-
     }
 }

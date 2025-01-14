@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            cbSpol = new ComboBox();
             label2 = new Label();
+            label3 = new Label();
+            cbSpol = new ComboBox();
             dtpDatumOd = new DateTimePicker();
             dtpDatumDo = new DateTimePicker();
-            label3 = new Label();
             label4 = new Label();
             txtImePrezime = new TextBox();
             chbAktivan = new CheckBox();
@@ -43,6 +43,7 @@
             Prosjek = new DataGridViewTextBoxColumn();
             DatumRodjenja = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
+            Spol = new DataGridViewTextBoxColumn();
             Uvjerenja = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
@@ -56,66 +57,67 @@
             label1.TabIndex = 0;
             label1.Text = "Spol";
             // 
-            // cbSpol
-            // 
-            cbSpol.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSpol.FormattingEnabled = true;
-            cbSpol.Location = new Point(57, 6);
-            cbSpol.Name = "cbSpol";
-            cbSpol.Size = new Size(144, 28);
-            cbSpol.TabIndex = 1;
-            cbSpol.SelectedIndexChanged += cbSpol_SelectedIndexChanged;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(207, 12);
+            label2.Location = new Point(321, 9);
             label2.Name = "label2";
             label2.Size = new Size(138, 20);
-            label2.TabIndex = 2;
+            label2.TabIndex = 0;
             label2.Text = "rođen u periodu od";
-            // 
-            // dtpDatumOd
-            // 
-            dtpDatumOd.Location = new Point(351, 7);
-            dtpDatumOd.Name = "dtpDatumOd";
-            dtpDatumOd.Size = new Size(250, 27);
-            dtpDatumOd.TabIndex = 3;
-            dtpDatumOd.Value = new DateTime(2000, 9, 12, 19, 50, 0, 0);
-            dtpDatumOd.ValueChanged += dtpDatumOd_ValueChanged;
-            // 
-            // dtpDatumDo
-            // 
-            dtpDatumDo.Location = new Point(641, 7);
-            dtpDatumDo.Name = "dtpDatumDo";
-            dtpDatumDo.Size = new Size(250, 27);
-            dtpDatumDo.TabIndex = 3;
-            dtpDatumDo.ValueChanged += dtpDatumDo_ValueChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(608, 11);
+            label3.Location = new Point(721, 9);
             label3.Name = "label3";
             label3.Size = new Size(27, 20);
-            label3.TabIndex = 2;
+            label3.TabIndex = 0;
             label3.Text = "do";
+            // 
+            // cbSpol
+            // 
+            cbSpol.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSpol.FormattingEnabled = true;
+            cbSpol.Items.AddRange(new object[] { "Svi", "Muški", "Ženski" });
+            cbSpol.Location = new Point(57, 6);
+            cbSpol.Name = "cbSpol";
+            cbSpol.Size = new Size(258, 28);
+            cbSpol.TabIndex = 1;
+            cbSpol.SelectedIndexChanged += cbSpol_SelectedIndexChanged;
+            // 
+            // dtpDatumOd
+            // 
+            dtpDatumOd.Location = new Point(465, 6);
+            dtpDatumOd.Name = "dtpDatumOd";
+            dtpDatumOd.Size = new Size(250, 27);
+            dtpDatumOd.TabIndex = 2;
+            dtpDatumOd.Value = new DateTime(1999, 1, 13, 17, 27, 0, 0);
+            dtpDatumOd.ValueChanged += dtpDatumOd_ValueChanged;
+            // 
+            // dtpDatumDo
+            // 
+            dtpDatumDo.Location = new Point(757, 6);
+            dtpDatumDo.Name = "dtpDatumDo";
+            dtpDatumDo.Size = new Size(250, 27);
+            dtpDatumDo.TabIndex = 2;
+            dtpDatumDo.ValueChanged += dtpDatumDo_ValueChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 43);
+            label4.Location = new Point(12, 42);
             label4.Name = "label4";
             label4.Size = new Size(108, 20);
-            label4.TabIndex = 4;
+            label4.TabIndex = 0;
             label4.Text = "Ime ili prezime";
             // 
             // txtImePrezime
             // 
-            txtImePrezime.Location = new Point(126, 43);
+            txtImePrezime.Location = new Point(126, 40);
             txtImePrezime.Name = "txtImePrezime";
-            txtImePrezime.Size = new Size(679, 27);
-            txtImePrezime.TabIndex = 5;
+            txtImePrezime.Size = new Size(783, 27);
+            txtImePrezime.TabIndex = 3;
             txtImePrezime.TextChanged += txtImePrezime_TextChanged;
             // 
             // chbAktivan
@@ -123,10 +125,10 @@
             chbAktivan.AutoSize = true;
             chbAktivan.Checked = true;
             chbAktivan.CheckState = CheckState.Checked;
-            chbAktivan.Location = new Point(811, 45);
+            chbAktivan.Location = new Point(931, 43);
             chbAktivan.Name = "chbAktivan";
             chbAktivan.Size = new Size(80, 24);
-            chbAktivan.TabIndex = 6;
+            chbAktivan.TabIndex = 4;
             chbAktivan.Text = "Aktivan";
             chbAktivan.UseVisualStyleBackColor = true;
             chbAktivan.CheckedChanged += chbAktivan_CheckedChanged;
@@ -136,25 +138,25 @@
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, ImePrezime, Prosjek, DatumRodjenja, Aktivan, Uvjerenja });
-            dgvStudenti.Location = new Point(12, 76);
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, ImePrezime, Prosjek, DatumRodjenja, Aktivan, Spol, Uvjerenja });
+            dgvStudenti.Location = new Point(12, 73);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
             dgvStudenti.RowHeadersWidth = 51;
             dgvStudenti.RowTemplate.Height = 29;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvStudenti.Size = new Size(874, 268);
-            dgvStudenti.TabIndex = 7;
-            dgvStudenti.CellContentClick += dgvStudenti_CellContentClick;
+            dgvStudenti.Size = new Size(999, 260);
+            dgvStudenti.TabIndex = 5;
+            dgvStudenti.CellClick += dgvStudenti_CellClick;
             // 
             // Indeks
             // 
+            Indeks.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Indeks.DataPropertyName = "Indeks";
             Indeks.HeaderText = "Broj indeksa";
             Indeks.MinimumWidth = 6;
             Indeks.Name = "Indeks";
             Indeks.ReadOnly = true;
-            Indeks.Width = 125;
             // 
             // ImePrezime
             // 
@@ -167,12 +169,12 @@
             // 
             // Prosjek
             // 
+            Prosjek.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Prosjek.DataPropertyName = "Prosjek";
             Prosjek.HeaderText = "Prosjek";
             Prosjek.MinimumWidth = 6;
             Prosjek.Name = "Prosjek";
             Prosjek.ReadOnly = true;
-            Prosjek.Width = 125;
             // 
             // DatumRodjenja
             // 
@@ -185,12 +187,21 @@
             // 
             // Aktivan
             // 
+            Aktivan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Aktivan.DataPropertyName = "Aktivan";
             Aktivan.HeaderText = "Aktivan";
             Aktivan.MinimumWidth = 6;
             Aktivan.Name = "Aktivan";
             Aktivan.ReadOnly = true;
-            Aktivan.Width = 125;
+            // 
+            // Spol
+            // 
+            Spol.DataPropertyName = "Spol";
+            Spol.HeaderText = "Spol";
+            Spol.MinimumWidth = 6;
+            Spol.Name = "Spol";
+            Spol.ReadOnly = true;
+            Spol.Width = 125;
             // 
             // Uvjerenja
             // 
@@ -206,18 +217,19 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(898, 356);
+            ClientSize = new Size(1023, 345);
             Controls.Add(dgvStudenti);
             Controls.Add(chbAktivan);
             Controls.Add(txtImePrezime);
-            Controls.Add(label4);
             Controls.Add(dtpDatumDo);
             Controls.Add(dtpDatumOd);
+            Controls.Add(cbSpol);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(cbSpol);
+            Controls.Add(label4);
             Controls.Add(label1);
             Name = "frmPretragaIB180079";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Pretraga studenta";
             Load += frmPretragaIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).EndInit();
@@ -228,11 +240,11 @@
         #endregion
 
         private Label label1;
-        private ComboBox cbSpol;
         private Label label2;
+        private Label label3;
+        private ComboBox cbSpol;
         private DateTimePicker dtpDatumOd;
         private DateTimePicker dtpDatumDo;
-        private Label label3;
         private Label label4;
         private TextBox txtImePrezime;
         private CheckBox chbAktivan;
@@ -242,6 +254,7 @@
         private DataGridViewTextBoxColumn Prosjek;
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewCheckBoxColumn Aktivan;
+        private DataGridViewTextBoxColumn Spol;
         private DataGridViewButtonColumn Uvjerenja;
     }
 }

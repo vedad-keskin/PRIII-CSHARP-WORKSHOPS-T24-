@@ -36,40 +36,43 @@
             // 
             // pbSlika
             // 
-            pbSlika.Location = new Point(24, 27);
+            pbSlika.Location = new Point(12, 9);
             pbSlika.Name = "pbSlika";
-            pbSlika.Size = new Size(268, 231);
+            pbSlika.Size = new Size(278, 249);
             pbSlika.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSlika.TabIndex = 0;
             pbSlika.TabStop = false;
             // 
             // lblImePrezime
             // 
-            lblImePrezime.Font = new Font("Segoe UI", 18F);
-            lblImePrezime.Location = new Point(24, 275);
+            lblImePrezime.Font = new Font("Segoe UI", 20F);
+            lblImePrezime.Location = new Point(12, 261);
             lblImePrezime.Name = "lblImePrezime";
-            lblImePrezime.Size = new Size(268, 42);
+            lblImePrezime.Size = new Size(278, 53);
             lblImePrezime.TabIndex = 1;
+            lblImePrezime.Text = "Ime i prezime";
             lblImePrezime.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblProsjek
             // 
             lblProsjek.Font = new Font("Segoe UI", 10F);
-            lblProsjek.Location = new Point(24, 325);
+            lblProsjek.Location = new Point(12, 314);
             lblProsjek.Name = "lblProsjek";
-            lblProsjek.Size = new Size(268, 25);
-            lblProsjek.TabIndex = 2;
+            lblProsjek.Size = new Size(278, 32);
+            lblProsjek.TabIndex = 1;
+            lblProsjek.Text = "Prosjek";
             lblProsjek.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmStudentInfoIB180079
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(317, 374);
+            ClientSize = new Size(304, 354);
             Controls.Add(lblProsjek);
             Controls.Add(lblImePrezime);
             Controls.Add(pbSlika);
             Name = "frmStudentInfoIB180079";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Info";
             Load += frmStudentInfoIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();

@@ -56,9 +56,9 @@
             // 
             // btnNovi
             // 
-            btnNovi.Location = new Point(809, 12);
+            btnNovi.Location = new Point(913, 12);
             btnNovi.Name = "btnNovi";
-            btnNovi.Size = new Size(151, 29);
+            btnNovi.Size = new Size(134, 29);
             btnNovi.TabIndex = 0;
             btnNovi.Text = "Novi zahtjev";
             btnNovi.UseVisualStyleBackColor = true;
@@ -70,13 +70,13 @@
             dgvUvjerenja.AllowUserToDeleteRows = false;
             dgvUvjerenja.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUvjerenja.Columns.AddRange(new DataGridViewColumn[] { Vrijeme, Vrsta, Svrha, Uplatnica, Printano, Brisi, Printaj });
-            dgvUvjerenja.Location = new Point(12, 55);
+            dgvUvjerenja.Location = new Point(12, 47);
             dgvUvjerenja.Name = "dgvUvjerenja";
             dgvUvjerenja.ReadOnly = true;
             dgvUvjerenja.RowHeadersWidth = 51;
             dgvUvjerenja.RowTemplate.Height = 29;
             dgvUvjerenja.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUvjerenja.Size = new Size(948, 252);
+            dgvUvjerenja.Size = new Size(1035, 236);
             dgvUvjerenja.TabIndex = 1;
             dgvUvjerenja.CellContentClick += dgvUvjerenja_CellContentClick;
             // 
@@ -91,27 +91,26 @@
             // 
             // Vrsta
             // 
+            Vrsta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Vrsta.DataPropertyName = "Vrsta";
             Vrsta.HeaderText = "Vrsta";
             Vrsta.MinimumWidth = 6;
             Vrsta.Name = "Vrsta";
             Vrsta.ReadOnly = true;
-            Vrsta.Width = 125;
             // 
             // Svrha
             // 
+            Svrha.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Svrha.DataPropertyName = "Svrha";
             Svrha.HeaderText = "Svrha";
             Svrha.MinimumWidth = 6;
             Svrha.Name = "Svrha";
             Svrha.ReadOnly = true;
-            Svrha.Width = 125;
             // 
             // Uplatnica
             // 
             Uplatnica.DataPropertyName = "Uplatnica";
             Uplatnica.HeaderText = "Uplatnica";
-            Uplatnica.ImageLayout = DataGridViewImageCellLayout.Stretch;
             Uplatnica.MinimumWidth = 6;
             Uplatnica.Name = "Uplatnica";
             Uplatnica.ReadOnly = true;
@@ -157,60 +156,60 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 323);
+            groupBox1.Location = new Point(12, 289);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(948, 282);
+            groupBox1.Size = new Size(1035, 248);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Dodavanje zahtjeva za izdavanjem uvjerenja";
             // 
             // txtInfo
             // 
-            txtInfo.Location = new Point(6, 113);
+            txtInfo.Location = new Point(18, 120);
             txtInfo.Multiline = true;
             txtInfo.Name = "txtInfo";
             txtInfo.ScrollBars = ScrollBars.Vertical;
-            txtInfo.Size = new Size(924, 163);
+            txtInfo.Size = new Size(1011, 122);
             txtInfo.TabIndex = 4;
             // 
             // btnDodaj
             // 
-            btnDodaj.Location = new Point(797, 60);
+            btnDodaj.Location = new Point(903, 54);
             btnDodaj.Name = "btnDodaj";
-            btnDodaj.Size = new Size(133, 29);
+            btnDodaj.Size = new Size(126, 29);
             btnDodaj.TabIndex = 3;
-            btnDodaj.Text = "Dodaj";
+            btnDodaj.Text = "Dodaj =>";
             btnDodaj.UseVisualStyleBackColor = true;
             btnDodaj.Click += btnDodaj_Click;
             // 
             // txtBroj
             // 
-            txtBroj.Location = new Point(645, 60);
+            txtBroj.Location = new Point(692, 56);
             txtBroj.Name = "txtBroj";
-            txtBroj.Size = new Size(130, 27);
+            txtBroj.Size = new Size(205, 27);
             txtBroj.TabIndex = 2;
             // 
             // txtSvrha
             // 
-            txtSvrha.Location = new Point(286, 59);
+            txtSvrha.Location = new Point(355, 57);
             txtSvrha.Name = "txtSvrha";
-            txtSvrha.Size = new Size(336, 27);
+            txtSvrha.Size = new Size(329, 27);
             txtSvrha.TabIndex = 2;
             // 
             // cbVrsta
             // 
             cbVrsta.DropDownStyle = ComboBoxStyle.DropDownList;
             cbVrsta.FormattingEnabled = true;
-            cbVrsta.Items.AddRange(new object[] { "Uvjerenje o položenim ispitima", "Uvjerenja o statusu studenta" });
-            cbVrsta.Location = new Point(6, 59);
+            cbVrsta.Items.AddRange(new object[] { "Uvjerenje o statusu studenta", "Uvjerenje o polozenim predmetima" });
+            cbVrsta.Location = new Point(18, 56);
             cbVrsta.Name = "cbVrsta";
-            cbVrsta.Size = new Size(266, 28);
+            cbVrsta.Size = new Size(322, 28);
             cbVrsta.TabIndex = 1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(645, 36);
+            label3.Location = new Point(692, 33);
             label3.Name = "label3";
             label3.Size = new Size(98, 20);
             label3.TabIndex = 0;
@@ -219,16 +218,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(286, 36);
+            label2.Location = new Point(355, 33);
             label2.Name = "label2";
-            label2.Size = new Size(112, 20);
+            label2.Size = new Size(115, 20);
             label2.TabIndex = 0;
-            label2.Text = "Svrha uvjerenja:";
+            label2.Text = "Svrha izdavanja:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 90);
+            label4.Location = new Point(18, 97);
             label4.Name = "label4";
             label4.Size = new Size(38, 20);
             label4.TabIndex = 0;
@@ -237,7 +236,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 36);
+            label1.Location = new Point(18, 33);
             label1.Name = "label1";
             label1.Size = new Size(108, 20);
             label1.TabIndex = 0;
@@ -251,12 +250,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(972, 617);
+            ClientSize = new Size(1059, 549);
             Controls.Add(groupBox1);
             Controls.Add(dgvUvjerenja);
             Controls.Add(btnNovi);
             Name = "frmUvjerenjaIB180079";
-            Text = "Info";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Broj";
             Load += frmUvjerenjaIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUvjerenja).EndInit();
             groupBox1.ResumeLayout(false);
@@ -277,7 +277,6 @@
         private DataGridViewButtonColumn Brisi;
         private DataGridViewButtonColumn Printaj;
         private GroupBox groupBox1;
-        private ComboBox cbVrsta;
         private Label label3;
         private Label label2;
         private Label label1;
@@ -285,6 +284,7 @@
         private Button btnDodaj;
         private TextBox txtBroj;
         private TextBox txtSvrha;
+        private ComboBox cbVrsta;
         private Label label4;
         private ErrorProvider err;
     }

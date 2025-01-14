@@ -16,7 +16,7 @@ namespace FIT.WinForms.IspitIB180079
     public partial class frmStudentInfoIB180079 : Form
     {
         private Student odabraniStudent;
-        DLWMSDbContext db = new DLWMSDbContext();
+
 
         public frmStudentInfoIB180079(Student odabraniStudent)
         {
@@ -31,10 +31,14 @@ namespace FIT.WinForms.IspitIB180079
 
         private void UcitajInfo()
         {
-            this.Text = odabraniStudent.Indeks;
-            pbSlika.Image = Ekstenzije.ToImage(odabraniStudent.Slika);
+            pbSlika.Image = odabraniStudent.Slika.ToImage();
+            //pbSlika.Image = Ekstenzije.ToImage(odabraniStudent.Slika);
+
             lblImePrezime.Text = odabraniStudent.ImePrezime;
             lblProsjek.Text = $"Prosjek: {odabraniStudent.Prosjek}";
+            this.Text = odabraniStudent.Indeks;
+
+
         }
     }
 }

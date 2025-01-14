@@ -25,32 +25,29 @@ namespace FIT.WinForms.IspitIB180079
             this.odabraniStudent = odabraniStudent;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnOtkazi_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void frmNovoUvjerenjeIB180079_Load(object sender, EventArgs e)
-        {
-            cbVrsta.SelectedIndex = 0;
-        }
-
         private void pbUplatnica_DoubleClick(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pbUplatnica.Image = Image.FromFile(openFileDialog1.FileName);
+                pbUplatnica.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSacuvaj_Click(object sender, EventArgs e)
         {
 
             if (Validiraj())
             {
-                var vrsta = cbVrsta.SelectedItem.ToString();
+
                 var svrha = txtSvrha.Text;
-                var uplatnica = Ekstenzije.ToByteArray(pbUplatnica.Image);
+                var vrsta = cbVrsta.SelectedItem.ToString();
+
+                var uplatnica = pbUplatnica.Image.ToByteArray();
 
 
                 var novoUvjerenje = new StudentiUvjerenjaIB180079()
@@ -62,7 +59,6 @@ namespace FIT.WinForms.IspitIB180079
                     Uplatnica = uplatnica,
                     Printano = false
 
-
                 };
 
                 db.StudentiUvjerenjaIB180079.Add(novoUvjerenje);
@@ -73,12 +69,18 @@ namespace FIT.WinForms.IspitIB180079
 
             }
 
-
         }
 
         private bool Validiraj()
         {
-            return Validator.ProvjeriUnos(pbUplatnica, err, Kljucevi.ReqiredValue) && Validator.ProvjeriUnos(txtSvrha, err, Kljucevi.ReqiredValue);
+            return Validator.ProvjeriUnos(txtSvrha, err, Kljucevi.ReqiredValue)
+                &&
+                Validator.ProvjeriUnos(pbUplatnica, err, Kljucevi.ReqiredValue);
+        }
+
+        private void frmNovoUvjerenjeIB180079_Load(object sender, EventArgs e)
+        {
+            cbVrsta.SelectedIndex = 0;
         }
     }
 }

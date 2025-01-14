@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,17 +8,15 @@ namespace FIT.Data.IspitIB180079
 {
     public class PolozeniPredmetiIB180079
     {
+
         public int Id { get; set; }
         public int StudentId { get; set; } // 1
-        public Student Student { get; set; } // Jasmin Azemovic IB21312
-
+        public Student Student { get; set; } // Indeks Ime .. 
         public int PredmetId { get; set; }
         public PredmetiIB180079 Predmet { get; set; }
-
         public int Ocjena { get; set; }
         public DateTime DatumPolaganja { get; set; }
         public string Napomena { get; set; }
-
 
 
     }

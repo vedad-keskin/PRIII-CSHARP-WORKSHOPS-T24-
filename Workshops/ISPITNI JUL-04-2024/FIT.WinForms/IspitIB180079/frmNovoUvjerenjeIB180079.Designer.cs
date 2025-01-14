@@ -30,15 +30,15 @@
         {
             components = new System.ComponentModel.Container();
             label1 = new Label();
+            cbVrsta = new ComboBox();
             label2 = new Label();
             label3 = new Label();
-            cbVrsta = new ComboBox();
             txtSvrha = new TextBox();
             pbUplatnica = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
+            btnSacuvaj = new Button();
+            btnOtkazi = new Button();
+            openFileDialog = new OpenFileDialog();
             err = new ErrorProvider(components);
-            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)pbUplatnica).BeginInit();
             ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             SuspendLayout();
@@ -46,93 +46,93 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 19);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(108, 20);
             label1.TabIndex = 0;
             label1.Text = "Vrsta uvjerenja:";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(297, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(141, 20);
-            label2.TabIndex = 0;
-            label2.Text = "Skenirana uplatnica:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 82);
-            label3.Name = "label3";
-            label3.Size = new Size(112, 20);
-            label3.TabIndex = 0;
-            label3.Text = "Svrha uvjerenja:";
-            // 
             // cbVrsta
             // 
             cbVrsta.DropDownStyle = ComboBoxStyle.DropDownList;
             cbVrsta.FormattingEnabled = true;
-            cbVrsta.Items.AddRange(new object[] { "Uvjerenje o položenim ispitima", "Uvjerenja o statusu studenta" });
-            cbVrsta.Location = new Point(12, 42);
+            cbVrsta.Items.AddRange(new object[] { "Uvjerenje o statusu studenta", "Uvjerenje o polozenim predmetima" });
+            cbVrsta.Location = new Point(12, 32);
             cbVrsta.Name = "cbVrsta";
-            cbVrsta.Size = new Size(261, 28);
+            cbVrsta.Size = new Size(296, 28);
             cbVrsta.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 74);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 20);
+            label2.TabIndex = 0;
+            label2.Text = "Svrha izdavanja:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(326, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(141, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Skenirana uplatnica:";
             // 
             // txtSvrha
             // 
-            txtSvrha.Location = new Point(12, 105);
+            txtSvrha.Location = new Point(12, 106);
             txtSvrha.Multiline = true;
             txtSvrha.Name = "txtSvrha";
-            txtSvrha.Size = new Size(267, 267);
+            txtSvrha.Size = new Size(296, 237);
             txtSvrha.TabIndex = 2;
             // 
             // pbUplatnica
             // 
-            pbUplatnica.Location = new Point(297, 42);
+            pbUplatnica.Location = new Point(326, 32);
             pbUplatnica.Name = "pbUplatnica";
-            pbUplatnica.Size = new Size(658, 278);
+            pbUplatnica.Size = new Size(552, 252);
             pbUplatnica.SizeMode = PictureBoxSizeMode.StretchImage;
             pbUplatnica.TabIndex = 3;
             pbUplatnica.TabStop = false;
             pbUplatnica.DoubleClick += pbUplatnica_DoubleClick;
             // 
-            // button1
+            // btnSacuvaj
             // 
-            button1.Location = new Point(821, 343);
-            button1.Name = "button1";
-            button1.Size = new Size(134, 29);
-            button1.TabIndex = 4;
-            button1.Text = "Sačuvaj";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnSacuvaj.Location = new Point(740, 301);
+            btnSacuvaj.Name = "btnSacuvaj";
+            btnSacuvaj.Size = new Size(138, 29);
+            btnSacuvaj.TabIndex = 4;
+            btnSacuvaj.Text = "Sačuvaj";
+            btnSacuvaj.UseVisualStyleBackColor = true;
+            btnSacuvaj.Click += btnSacuvaj_Click;
             // 
-            // button2
+            // btnOtkazi
             // 
-            button2.Location = new Point(666, 343);
-            button2.Name = "button2";
-            button2.Size = new Size(134, 29);
-            button2.TabIndex = 4;
-            button2.Text = "Odustani";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnOtkazi.Location = new Point(585, 301);
+            btnOtkazi.Name = "btnOtkazi";
+            btnOtkazi.Size = new Size(138, 29);
+            btnOtkazi.TabIndex = 4;
+            btnOtkazi.Text = "Otkaži";
+            btnOtkazi.UseVisualStyleBackColor = true;
+            btnOtkazi.Click += btnOtkazi_Click;
+            // 
+            // openFileDialog
+            // 
+            openFileDialog.FileName = "openFileDialog1";
             // 
             // err
             // 
             err.ContainerControl = this;
             // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
             // frmNovoUvjerenjeIB180079
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(967, 384);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(890, 356);
+            Controls.Add(btnOtkazi);
+            Controls.Add(btnSacuvaj);
             Controls.Add(pbUplatnica);
             Controls.Add(txtSvrha);
             Controls.Add(cbVrsta);
@@ -140,7 +140,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frmNovoUvjerenjeIB180079";
-            Text = "Novi zahtjev za izdavanjem uvjerenja";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Novi zahtjev za izdavajem uvjerenja";
             Load += frmNovoUvjerenjeIB180079_Load;
             ((System.ComponentModel.ISupportInitialize)pbUplatnica).EndInit();
             ((System.ComponentModel.ISupportInitialize)err).EndInit();
@@ -151,14 +152,14 @@
         #endregion
 
         private Label label1;
+        private ComboBox cbVrsta;
         private Label label2;
         private Label label3;
-        private ComboBox cbVrsta;
         private TextBox txtSvrha;
         private PictureBox pbUplatnica;
-        private Button button1;
-        private Button button2;
+        private Button btnSacuvaj;
+        private Button btnOtkazi;
+        private OpenFileDialog openFileDialog;
         private ErrorProvider err;
-        private OpenFileDialog openFileDialog1;
     }
 }
