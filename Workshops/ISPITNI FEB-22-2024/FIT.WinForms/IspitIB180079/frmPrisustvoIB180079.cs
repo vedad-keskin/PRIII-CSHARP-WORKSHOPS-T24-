@@ -33,7 +33,9 @@ namespace FIT.WinForms.IspitIB180079
 
             lblProstorijaNaziv.Text = $"{odabranaProstorija.Naziv} - {odabranaProstorija.Oznaka}";
 
-            cbNastava.DataSource = db.NastavaIB180079.Where(x => x.ProstorijaId == odabranaProstorija.Id).ToList();
+            cbNastava.DataSource = db.NastavaIB180079
+                .Include(x=> x.Predmet)
+                .Where(x => x.ProstorijaId == odabranaProstorija.Id).ToList();
 
             cbNastava.DisplayMember = "Oznaka";
 

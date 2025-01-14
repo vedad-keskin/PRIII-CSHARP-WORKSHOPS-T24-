@@ -20,7 +20,7 @@ namespace FIT.Data.IspitIB180079
 
         public override string ToString()
         {
-            return $"{Predmet} u {Dan} @ {Vrijeme}";
+            return $"{Predmet.Naziv} u {Dan} @ {Vrijeme}";
         }
 
 
