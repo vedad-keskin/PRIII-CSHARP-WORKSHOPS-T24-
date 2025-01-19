@@ -18,6 +18,12 @@ namespace FIT.WinForms.Helpers
             comboBox.DisplayMember = displayMember;
             comboBox.ValueMember = valueMember;
         }
+
+
+
+
+
+
         public static Image ToImage(this byte[] sadrzaj)
         {            
             var ms = new MemoryStream(sadrzaj);

@@ -17,15 +17,24 @@ namespace FIT.Data
         public bool Aktivan { get; set; }        
         public int SemestarId { get; set; }
         public SemestriIB180079 Semestar { get; set; }
+
+        // friend ostream& operator << 
+
         public int GradId { get; set; }
         public GradoviIB180079 Grad { get; set; }
 
+
+        public string DrzavaInfo => Grad.Drzava.Naziv ?? "N/A";
+
         [NotMapped]
         public double Prosjek { get; set; }
-        public string Drzava => Grad.Drzava == null ? "" : Grad.Drzava.ToString();
+
+
         public override string ToString()
         {
-            return $"{Ime} {Prezime}";
+            // COUT << Indeks << " " << Ime << " " << Prezime <<
+
+            return $"{Indeks} {Ime} {Prezime}";
         }
     }
 }

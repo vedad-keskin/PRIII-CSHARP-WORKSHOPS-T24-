@@ -20,6 +20,15 @@ namespace FIT.Infrastructure
         {
             optionsBuilder.UseSqlite(dbPutanja);
         }
+
+
+
+
+
+
+
+
+
     
         public DbSet<Student> Studenti { get; set; }
         public DbSet<PredmetiIB180079> Predmeti { get; set; }

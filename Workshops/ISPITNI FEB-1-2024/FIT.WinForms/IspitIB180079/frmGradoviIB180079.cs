@@ -20,6 +20,7 @@ namespace FIT.WinForms.IspitIB180079
         DLWMSDbContext db = new DLWMSDbContext();
         List<GradoviIB180079> gradovi;
 
+
         public frmGradoviIB180079(DrzaveIB180079 odabranaDrzava)
         {
             InitializeComponent();
@@ -29,8 +30,10 @@ namespace FIT.WinForms.IspitIB180079
         private void frmGradoviIB180079_Load(object sender, EventArgs e)
         {
             dgvGradovi.AutoGenerateColumns = false;
+
             UcitajInfo();
             UcitajGradove();
+
         }
 
         private void UcitajGradove()
@@ -39,61 +42,63 @@ namespace FIT.WinForms.IspitIB180079
                 .Where(x => x.DrzavaId == odabranaDrzava.Id)
                 .ToList();
 
+
             if (gradovi != null)
             {
 
                 dgvGradovi.DataSource = null;
                 dgvGradovi.DataSource = gradovi;
+
             }
-           
         }
 
         private void UcitajInfo()
         {
-            pbZastava.Image = Ekstenzije.ToImage(odabranaDrzava.Zastava);
-            lblDrzava.Text = odabranaDrzava.Naziv;
+            pbZastava.Image = odabranaDrzava.Zastava.ToImage();
+
+            lblNazivDrzave.Text = odabranaDrzava.Naziv;
+
         }
 
         private void dgvGradovi_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             var odabraniGrad = gradovi[e.RowIndex];
 
             if (e.ColumnIndex == 2)
             {
-                // 1. nacin
 
-                //if (odabraniGrad.Status)
-                //{
-                //    odabraniGrad.Status = false;
-                //}
-                //else
-                //{
-                //    odabraniGrad.Status = true;
-                //}
-
-                // 2. nacin
-
-                //odabraniGrad = odabraniGrad.Status ? false : true;
-
-                // 3. nacin
 
                 odabraniGrad.Status = !odabraniGrad.Status;
 
+
+                // pohrana          =          iskaz/provjera     ? ako je true uradi ovo : ako ovo nije true ;
+                //odabraniGrad.Status = odabraniGrad.Status ? false : true;
+
+                // ?? ako je lijeva strana null neka se nesto desi -> 
+
+
                 db.GradoviIB180079.Update(odabraniGrad);
                 db.SaveChanges();
+
+                UcitajGradove();
+
+
             }
-            UcitajGradove();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (Validiraj())
             {
+
                 var naziv = txtNaziv.Text;
 
-                if (db.GradoviIB180079.ToList().Exists(x => x.DrzavaId == odabranaDrzava.Id && x.Naziv.ToLower() == naziv.ToLower()))
+                //                        mostar == mostar
+                if (gradovi.Exists(x => x.Naziv.ToLower() == naziv.ToLower()))
                 {
-                    MessageBox.Show("Već je unesen grad sa tim imenom!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Grad {naziv} već postoji u državi {odabranaDrzava.Naziv}", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -101,15 +106,25 @@ namespace FIT.WinForms.IspitIB180079
                     {
                         Naziv = naziv,
                         Status = true,
-                        DrzavaId = odabranaDrzava.Id
+                        DrzavaId = odabranaDrzava.Id,
+
+                        // Drzava = odabranaDrzava BAZA PUCA 
+
                     };
 
                     db.GradoviIB180079.Add(noviGrad);
                     db.SaveChanges();
 
                     txtNaziv.Clear();
+
                 }
+
+
+
                 UcitajGradove();
+
+
+
             }
         }
 
@@ -121,73 +136,88 @@ namespace FIT.WinForms.IspitIB180079
         private void frmGradoviIB180079_FormClosed(object sender, FormClosedEventArgs e)
         {
             DialogResult = DialogResult.OK;
+
         }
 
-        private async void btnGenerisi_Click(object sender, EventArgs e)
+        private void btnGenerisi_Click(object sender, EventArgs e)
         {
             // 1. dio
-            // -- async/await/task ILI kreiranje i pokretanje threada
             // -- validacija
-            // -- sve vezano za combobox
+            // -- kreiranje threada/pokretanje threada ili await/async/run
+            // -- [---]
+
 
             if (ValidirajMultithreading())
             {
 
-                await Task.Run(() => GenerisiGradove());
+                Thread t1 = new Thread(() => GenerisiGradove());
+                t1.Start();
 
-                //Thread thread = new Thread(() => GenerisiGradove());
-                //thread.Start();
             }
+
+
+
         }
 
         private void GenerisiGradove()
         {
-
             // 2. dio
+            // -- pohrane
             // -- kalkulacije
-            // -- pohrane 
             // -- sleep
 
-
             var broj = int.Parse(txtBroj.Text);
+
             var status = chbStatus.Checked;
+
             var info = "";
 
-            for (int i = 0; i < broj; i++)
+            for (int i = 0; i < broj; i++) // i = 0  1 2 3 4 5 
             {
                 Thread.Sleep(300);
+
                 var noviGrad = new GradoviIB180079()
                 {
-                    Naziv = $"Grad {i+1}.",
                     Status = status,
+                    Naziv = $"Grad {i + 1}.",
                     DrzavaId = odabranaDrzava.Id
+
                 };
+
+                info += $"{DateTime.Now.ToString("dd.MM HH:mm:ss")} -> dodat grad {noviGrad.Naziv} za drzavu {odabranaDrzava.Naziv}{Environment.NewLine}";
+
                 db.GradoviIB180079.Add(noviGrad);
                 db.SaveChanges();
 
-                info += $"{DateTime.Now.ToString("dd:MM")} {DateTime.Now.ToString("HH:mm:ss")} -> dodat grad {noviGrad.Naziv}. za državu {odabranaDrzava} {Environment.NewLine}";
+
 
             }
 
-            // 3. dio
-            // -- ispisi
-            // -- mbox 
-            // -- ucitavanje
+
+
+
 
             Action action = () =>
             {
+                // 3. dio
+                // -- mbox
+                // -- ispis
+                // -- ucitavanje
+
                 UcitajGradove();
-                MessageBox.Show($"Generisano je {broj} gradova.","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show($"Generisano je {broj} gradova","Informacija",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 txtInfo.Text = info;
+
 
             };
             BeginInvoke(action);
+
 
         }
 
         private bool ValidirajMultithreading()
         {
-            return Validator.ProvjeriUnos(txtBroj,err,Kljucevi.ReqiredValue);
+            return Validator.ProvjeriUnos(txtBroj, err, Kljucevi.ReqiredValue);
         }
     }
 }

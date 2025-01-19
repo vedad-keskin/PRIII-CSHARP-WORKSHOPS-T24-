@@ -19,32 +19,55 @@ namespace FIT.WinForms.IspitIB180079
         DLWMSDbContext db = new DLWMSDbContext();
         private DrzaveIB180079 odabranaDrzava;
 
+        // nova drzava
         public frmNovaDrzavaIB180079()
         {
             InitializeComponent();
         }
 
+
+        // edit postojece drzava
         public frmNovaDrzavaIB180079(DrzaveIB180079 odabranaDrzava)
         {
             InitializeComponent();
             this.odabranaDrzava = odabranaDrzava;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pbZastava_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // C:\Users\ASUS\Desktop\C# Repos\Slike helpers\jpn.png
+                pbZastava.Image = Image.FromFile(openFileDialog1.FileName);
+            }
+
+        }
+
+        private void btnSacuvaj_Click(object sender, EventArgs e)
         {
             if (Validiraj())
             {
-                var naziv = txtNaziv.Text;
-                var zastava = Ekstenzije.ToByteArray(pbZastava.Image);
-                var aktivan = chbAktivan.Checked;
 
-                if (odabranaDrzava == null)
+                var naziv = txtNaziv.Text;
+
+                // IMAGE -> BYTE[] 
+                var zastava = Ekstenzije.ToByteArray(pbZastava.Image);
+                //var zastava = pbZastava.Image.ToByteArray();
+
+                var status = chbStatus.Checked;
+
+                if(odabranaDrzava == null)
                 {
                     var novaDrzava = new DrzaveIB180079()
                     {
+                        // Id = 4, // PROGRAM PUCA 
+                        // Broj = 0, // PROGRAM PUCA
+
                         Naziv = naziv,
-                        Zastava = zastava,
-                        Status = aktivan
+                        Status = status,
+                        Zastava = zastava
+
                     };
 
                     db.DrzaveIB180079.Add(novaDrzava);
@@ -52,15 +75,18 @@ namespace FIT.WinForms.IspitIB180079
                 }
                 else
                 {
+
                     odabranaDrzava.Zastava = zastava;
-                    odabranaDrzava.Status = aktivan;
+                    odabranaDrzava.Status = status;
                     odabranaDrzava.Naziv = naziv;
 
                     db.DrzaveIB180079.Update(odabranaDrzava);
+
+
                 }
 
-
                 db.SaveChanges();
+
                 DialogResult = DialogResult.OK;
 
             }
@@ -68,31 +94,33 @@ namespace FIT.WinForms.IspitIB180079
 
         private bool Validiraj()
         {
-            return Validator.ProvjeriUnos(txtNaziv, err, Kljucevi.ReqiredValue) &&
-                Validator.ProvjeriUnos(pbZastava, err, Kljucevi.ReqiredValue);
-        }
 
-        private void pbZastava_DoubleClick(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pbZastava.Image = Image.FromFile(openFileDialog1.FileName);
-            }
+            return Helpers.Validator.ProvjeriUnos(pbZastava, err, Kljucevi.ReqiredValue)
+                &&
+                Helpers.Validator.ProvjeriUnos(txtNaziv, err, Kljucevi.ReqiredValue);
+
         }
 
         private void frmNovaDrzavaIB180079_Load(object sender, EventArgs e)
         {
-            UcitajDrzavu();
+            UcitajInfo();
         }
 
-        private void UcitajDrzavu()
+        private void UcitajInfo()
         {
-            if (odabranaDrzava != null)
+            
+            if(odabranaDrzava != null)
             {
-                pbZastava.Image = Ekstenzije.ToImage(odabranaDrzava.Zastava);
+                // BYTE[] -> IMAGE
+                pbZastava.Image = odabranaDrzava.Zastava.ToImage();
+
                 txtNaziv.Text = odabranaDrzava.Naziv;
-                chbAktivan.Checked = odabranaDrzava.Status;
+
+                chbStatus.Checked = odabranaDrzava.Status;
+
             }
+
+
         }
     }
 }

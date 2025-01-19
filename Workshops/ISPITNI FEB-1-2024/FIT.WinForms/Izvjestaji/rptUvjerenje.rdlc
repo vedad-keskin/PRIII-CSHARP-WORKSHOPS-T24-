@@ -2,23 +2,31 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="dsGradovi">
+    <DataSource Name="dsIzvjestajIB180079">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c38d4dff-be85-446d-91d3-cd4943f2c30f</rd:DataSourceID>
+      <rd:DataSourceID>5e709d88-8104-4358-8542-3b1562c5d860</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsGradovi">
       <Query>
-        <DataSourceName>dsGradovi</DataSourceName>
+        <DataSourceName>dsIzvjestajIB180079</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Naziv">
-          <DataField>Naziv</DataField>
+        <Field Name="Rb">
+          <DataField>Rb</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Grad">
+          <DataField>Grad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Drzava">
+          <DataField>Drzava</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Aktivan">
@@ -27,8 +35,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsGradovi</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\Desktop\C# Repository [T24]\Workshops\ISPITNI FEB-1-2024\FIT.WinForms\Izvjestaji\dsGradovi.xsd</rd:SchemaPath>
+        <rd:DataSetName>dsIzvjestajIB180079</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\ASUS\Desktop\temp\IZUDIN I KOMPANIJA\JAN\Template 2024\FIT.WinForms\Izvjestaji\dsIzvjestajIB180079.xsd</rd:SchemaPath>
         <rd:TableName>dsGradovi</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -40,16 +48,39 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Textbox Name="Textbox1">
+          <Line Name="Line1">
+            <Top>0.14111cm</Top>
+            <Left>0.4572cm</Left>
+            <Height>0cm</Height>
+            <Width>15.43283cm</Width>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Line Name="Line2">
+            <Top>5.93623cm</Top>
+            <Left>0.4572cm</Left>
+            <Height>0cm</Height>
+            <Width>15.43283cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox4">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>LISTA GRADOVA ZA DRŽAVU</Value>
+                    <Value>GRADOVI</Value>
                     <Style>
-                      <FontSize>16pt</FontSize>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -61,10 +92,9 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Parameters!Drzava.Value</Value>
+                    <Value>evidentirani u DLWMS bazi</Value>
                     <Style>
-                      <FontSize>16pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
+                      <FontSize>12pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -73,11 +103,12 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>3.5687cm</Top>
-            <Left>4.91808cm</Left>
-            <Height>2.16104cm</Height>
-            <Width>7.18312cm</Width>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>0.46426cm</Top>
+            <Left>4.5847cm</Left>
+            <Height>1.235cm</Height>
+            <Width>7.834cm</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -88,44 +119,54 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="Image1">
-            <Source>Embedded</Source>
-            <Value>logofit</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>1.16099cm</Top>
-            <Left>0.44662cm</Left>
-            <Height>3.11396cm</Height>
-            <Width>4.29507cm</Width>
-            <ZIndex>1</ZIndex>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Prikazano gradova: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!broj.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>4.59176cm</Top>
+            <Left>0.4572cm</Left>
+            <Height>0.6cm</Height>
+            <Width>10.8185cm</Width>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
             </Style>
-          </Image>
-          <Image Name="Image2">
-            <Source>Embedded</Source>
-            <Value>logounmo</Value>
-            <Sizing>FitProportional</Sizing>
-            <Top>0.68474cm</Top>
-            <Left>12.54938cm</Left>
-            <Height>3.11396cm</Height>
-            <Width>3.96062cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Tablix Name="Tablix1">
+          </Textbox>
+          <Tablix Name="Tablix2">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>11.93681cm</Width>
+                  <Width>1.9285cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.33785cm</Width>
+                  <Width>5.033cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5.4845cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.98683cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -134,21 +175,21 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox2">
+                        <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Naziv</Value>
+                                  <Value>Rb</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -164,7 +205,67 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox4">
+                        <Textbox Name="Textbox14">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Grad</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Drzava</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -178,7 +279,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -199,21 +300,81 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Naziv">
+                        <Textbox Name="Rb">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Naziv.Value</Value>
+                                  <Value>=Fields!Rb.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Naziv</rd:DefaultName>
+                          <rd:DefaultName>Rb</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Grad">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Grad.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Grad</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Drzava">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Drzava.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Drzava</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -265,6 +426,8 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -278,11 +441,11 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsGradovi</DataSetName>
-            <Top>6.50558cm</Top>
-            <Left>0.55245cm</Left>
+            <Top>2.53859cm</Top>
+            <Left>0.4572cm</Left>
             <Height>1.2cm</Height>
-            <Width>15.27465cm</Width>
-            <ZIndex>3</ZIndex>
+            <Width>15.43283cm</Width>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -290,24 +453,104 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>3.34711in</Height>
+        <Height>2.4621in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>6.61425in</Width>
       <Page>
-        <PageFooter>
-          <Height>1.37583cm</Height>
+        <PageHeader>
+          <Height>2.72344cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="ExecutionTime">
+            <Image Name="Image1">
+              <Source>Embedded</Source>
+              <Value>logofit</Value>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.4572cm</Top>
+              <Left>0.4572cm</Left>
+              <Height>2.05458cm</Height>
+              <Width>3.659cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox1">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Trenutni datum i vrijeme: </Value>
+                      <Value>Univerzitet Džemal Bijedić</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Fakultet infromacijskih tehnologija</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>www.fit.ba</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.92287cm</Top>
+              <Left>4.5847cm</Left>
+              <Height>1.58891cm</Height>
+              <Width>7.834cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1.12183cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Dokument kreiran: </Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -322,11 +565,45 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.33224cm</Top>
-              <Left>0.55245cm</Left>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.14111cm</Top>
+              <Left>0.4572cm</Left>
               <Height>0.6cm</Height>
-              <Width>9.14104cm</Width>
+              <Width>7.98217cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>PageNumber</rd:DefaultName>
+              <Top>0.17639cm</Top>
+              <Left>13.39003cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -356,7 +633,7 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="Drzava">
+    <ReportParameter Name="broj">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -369,7 +646,7 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>Drzava</ParameterName>
+          <ParameterName>broj</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

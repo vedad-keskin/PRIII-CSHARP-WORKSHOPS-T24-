@@ -20,9 +20,9 @@ namespace FIT.WinForms.Izvjestaji {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsGradovi")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsIzvjestajIB180079")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsGradovi : global::System.Data.DataSet {
+    public partial class dsIzvjestajIB180079 : global::System.Data.DataSet {
         
         private dsGradoviDataTable tabledsGradovi;
         
@@ -30,7 +30,7 @@ namespace FIT.WinForms.Izvjestaji {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public dsGradovi() {
+        public dsIzvjestajIB180079() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FIT.WinForms.Izvjestaji {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected dsGradovi(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsIzvjestajIB180079(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -79,7 +79,7 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dsGradoviDataTable _dsGradovi {
+        public dsGradoviDataTable dsGradovi {
             get {
                 return this.tabledsGradovi;
             }
@@ -127,7 +127,7 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsGradovi cln = ((dsGradovi)(base.Clone()));
+            dsIzvjestajIB180079 cln = ((dsIzvjestajIB180079)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsGradovi";
+            this.DataSetName = "dsIzvjestajIB180079";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsGradovi.xsd";
+            this.Namespace = "http://tempuri.org/dsIzvjestajIB180079.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tabledsGradovi = new dsGradoviDataTable();
@@ -210,7 +210,7 @@ namespace FIT.WinForms.Izvjestaji {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerialize_dsGradovi() {
+        private bool ShouldSerializedsGradovi() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsGradovi ds = new dsGradovi();
+            dsIzvjestajIB180079 ds = new dsIzvjestajIB180079();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -279,7 +279,11 @@ namespace FIT.WinForms.Izvjestaji {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class dsGradoviDataTable : global::System.Data.TypedTableBase<dsGradoviRow> {
             
-            private global::System.Data.DataColumn columnNaziv;
+            private global::System.Data.DataColumn columnRb;
+            
+            private global::System.Data.DataColumn columnGrad;
+            
+            private global::System.Data.DataColumn columnDrzava;
             
             private global::System.Data.DataColumn columnAktivan;
             
@@ -318,9 +322,25 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NazivColumn {
+            public global::System.Data.DataColumn RbColumn {
                 get {
-                    return this.columnNaziv;
+                    return this.columnRb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GradColumn {
+                get {
+                    return this.columnGrad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DrzavaColumn {
+                get {
+                    return this.columnDrzava;
                 }
             }
             
@@ -369,10 +389,12 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dsGradoviRow AdddsGradoviRow(string Naziv, string Aktivan) {
+            public dsGradoviRow AdddsGradoviRow(string Rb, string Grad, string Drzava, string Aktivan) {
                 dsGradoviRow rowdsGradoviRow = ((dsGradoviRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Naziv,
+                        Rb,
+                        Grad,
+                        Drzava,
                         Aktivan};
                 rowdsGradoviRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsGradoviRow);
@@ -396,19 +418,23 @@ namespace FIT.WinForms.Izvjestaji {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnNaziv = base.Columns["Naziv"];
+                this.columnRb = base.Columns["Rb"];
+                this.columnGrad = base.Columns["Grad"];
+                this.columnDrzava = base.Columns["Drzava"];
                 this.columnAktivan = base.Columns["Aktivan"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnNaziv = new global::System.Data.DataColumn("Naziv", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNaziv);
+                this.columnRb = new global::System.Data.DataColumn("Rb", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRb);
+                this.columnGrad = new global::System.Data.DataColumn("Grad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrad);
+                this.columnDrzava = new global::System.Data.DataColumn("Drzava", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDrzava);
                 this.columnAktivan = new global::System.Data.DataColumn("Aktivan", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAktivan);
-                this.ExtendedProperties.Add("Generator_TablePropName", "_dsGradovi");
-                this.ExtendedProperties.Add("Generator_UserTableName", "dsGradovi");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -476,7 +502,7 @@ namespace FIT.WinForms.Izvjestaji {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsGradovi ds = new dsGradovi();
+                dsIzvjestajIB180079 ds = new dsIzvjestajIB180079();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -551,17 +577,49 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Naziv {
+            public string Rb {
                 get {
                     try {
-                        return ((string)(this[this.tabledsGradovi.NazivColumn]));
+                        return ((string)(this[this.tabledsGradovi.RbColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Naziv\' in table \'dsGradovi\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rb\' in table \'dsGradovi\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsGradovi.NazivColumn] = value;
+                    this[this.tabledsGradovi.RbColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Grad {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsGradovi.GradColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Grad\' in table \'dsGradovi\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsGradovi.GradColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Drzava {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsGradovi.DrzavaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Drzava\' in table \'dsGradovi\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsGradovi.DrzavaColumn] = value;
                 }
             }
             
@@ -583,14 +641,38 @@ namespace FIT.WinForms.Izvjestaji {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNazivNull() {
-                return this.IsNull(this.tabledsGradovi.NazivColumn);
+            public bool IsRbNull() {
+                return this.IsNull(this.tabledsGradovi.RbColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNazivNull() {
-                this[this.tabledsGradovi.NazivColumn] = global::System.Convert.DBNull;
+            public void SetRbNull() {
+                this[this.tabledsGradovi.RbColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGradNull() {
+                return this.IsNull(this.tabledsGradovi.GradColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGradNull() {
+                this[this.tabledsGradovi.GradColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDrzavaNull() {
+                return this.IsNull(this.tabledsGradovi.DrzavaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDrzavaNull() {
+                this[this.tabledsGradovi.DrzavaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

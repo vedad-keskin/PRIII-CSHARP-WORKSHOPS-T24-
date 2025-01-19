@@ -29,61 +29,57 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            statusStrip1 = new StatusStrip();
-            tslVrijeme = new ToolStripStatusLabel();
-            timer = new System.Windows.Forms.Timer(components);
+            btnNovaDrzava = new Button();
+            btnPrintaj = new Button();
             dgvDrzave = new DataGridView();
             Zastava = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
             Broj = new DataGridViewTextBoxColumn();
-            Aktivan = new DataGridViewCheckBoxColumn();
+            Status = new DataGridViewCheckBoxColumn();
             Gradovi = new DataGridViewButtonColumn();
-            button1 = new Button();
-            button2 = new Button();
-            statusStrip1.SuspendLayout();
+            statusStrip1 = new StatusStrip();
+            tsslSat = new ToolStripStatusLabel();
+            timer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dgvDrzave).BeginInit();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // statusStrip1
+            // btnNovaDrzava
             // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { tslVrijeme });
-            statusStrip1.Location = new Point(0, 417);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Padding = new Padding(1, 0, 16, 0);
-            statusStrip1.Size = new Size(917, 26);
-            statusStrip1.TabIndex = 0;
-            statusStrip1.Text = "statusStrip1";
+            btnNovaDrzava.Location = new Point(683, 12);
+            btnNovaDrzava.Name = "btnNovaDrzava";
+            btnNovaDrzava.Size = new Size(142, 29);
+            btnNovaDrzava.TabIndex = 0;
+            btnNovaDrzava.Text = "Nova država";
+            btnNovaDrzava.UseVisualStyleBackColor = true;
+            btnNovaDrzava.Click += btnNovaDrzava_Click;
             // 
-            // tslVrijeme
+            // btnPrintaj
             // 
-            tslVrijeme.Name = "tslVrijeme";
-            tslVrijeme.Size = new Size(151, 20);
-            tslVrijeme.Text = "toolStripStatusLabel1";
-            // 
-            // timer
-            // 
-            timer.Enabled = true;
-            timer.Interval = 1000;
-            timer.Tick += timer_Tick;
+            btnPrintaj.Location = new Point(683, 254);
+            btnPrintaj.Name = "btnPrintaj";
+            btnPrintaj.Size = new Size(142, 29);
+            btnPrintaj.TabIndex = 0;
+            btnPrintaj.Text = "Printaj";
+            btnPrintaj.UseVisualStyleBackColor = true;
+            btnPrintaj.Click += btnPrintaj_Click;
             // 
             // dgvDrzave
             // 
             dgvDrzave.AllowUserToAddRows = false;
             dgvDrzave.AllowUserToDeleteRows = false;
             dgvDrzave.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDrzave.Columns.AddRange(new DataGridViewColumn[] { Zastava, Naziv, Broj, Aktivan, Gradovi });
-            dgvDrzave.Location = new Point(12, 54);
-            dgvDrzave.Margin = new Padding(3, 4, 3, 4);
+            dgvDrzave.Columns.AddRange(new DataGridViewColumn[] { Zastava, Naziv, Broj, Status, Gradovi });
+            dgvDrzave.Location = new Point(12, 48);
             dgvDrzave.Name = "dgvDrzave";
             dgvDrzave.ReadOnly = true;
             dgvDrzave.RowHeadersWidth = 51;
-            dgvDrzave.RowTemplate.Height = 25;
+            dgvDrzave.RowTemplate.Height = 29;
             dgvDrzave.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDrzave.Size = new Size(889, 292);
+            dgvDrzave.Size = new Size(813, 200);
             dgvDrzave.TabIndex = 1;
-            dgvDrzave.CellClick += dgvDrzave_CellClick;
             dgvDrzave.CellContentClick += dgvDrzave_CellContentClick;
+            dgvDrzave.CellDoubleClick += dgvDrzave_CellDoubleClick;
             // 
             // Zastava
             // 
@@ -93,7 +89,7 @@
             Zastava.MinimumWidth = 6;
             Zastava.Name = "Zastava";
             Zastava.ReadOnly = true;
-            Zastava.Width = 60;
+            Zastava.Width = 70;
             // 
             // Naziv
             // 
@@ -106,23 +102,21 @@
             // 
             // Broj
             // 
-            Broj.DataPropertyName = "BrojGradova";
+            Broj.DataPropertyName = "Broj";
             Broj.HeaderText = "Broj gradova";
             Broj.MinimumWidth = 6;
             Broj.Name = "Broj";
             Broj.ReadOnly = true;
             Broj.Width = 125;
             // 
-            // Aktivan
+            // Status
             // 
-            Aktivan.DataPropertyName = "Status";
-            Aktivan.HeaderText = "Aktivna";
-            Aktivan.MinimumWidth = 6;
-            Aktivan.Name = "Aktivan";
-            Aktivan.ReadOnly = true;
-            Aktivan.Resizable = DataGridViewTriState.True;
-            Aktivan.SortMode = DataGridViewColumnSortMode.Automatic;
-            Aktivan.Width = 125;
+            Status.DataPropertyName = "Status";
+            Status.HeaderText = "Aktivna";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 125;
             // 
             // Gradovi
             // 
@@ -134,61 +128,60 @@
             Gradovi.UseColumnTextForButtonValue = true;
             Gradovi.Width = 125;
             // 
-            // button1
+            // statusStrip1
             // 
-            button1.Location = new Point(752, 15);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(149, 31);
-            button1.TabIndex = 2;
-            button1.Text = "Nova država";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tsslSat });
+            statusStrip1.Location = new Point(0, 291);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(837, 26);
+            statusStrip1.TabIndex = 2;
+            statusStrip1.Text = "statusStrip1";
             // 
-            // button2
+            // tsslSat
             // 
-            button2.Location = new Point(752, 354);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(149, 31);
-            button2.TabIndex = 2;
-            button2.Text = "Printaj";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            tsslSat.Name = "tsslSat";
+            tsslSat.Size = new Size(27, 20);
+            tsslSat.Text = "---";
+            // 
+            // timer
+            // 
+            timer.Enabled = true;
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
             // 
             // frmDrzaveIB180079
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(917, 443);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(dgvDrzave);
+            ClientSize = new Size(837, 317);
             Controls.Add(statusStrip1);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(dgvDrzave);
+            Controls.Add(btnPrintaj);
+            Controls.Add(btnNovaDrzava);
             Name = "frmDrzaveIB180079";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Drzave";
+            Text = "Države";
             Load += frmDrzaveIB180079_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvDrzave).EndInit();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDrzave).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private StatusStrip statusStrip1;
-        private System.Windows.Forms.Timer timer;
-        private ToolStripStatusLabel tslVrijeme;
+        private Button btnNovaDrzava;
+        private Button btnPrintaj;
         private DataGridView dgvDrzave;
-        private Button button1;
-        private Button button2;
         private DataGridViewImageColumn Zastava;
         private DataGridViewTextBoxColumn Naziv;
         private DataGridViewTextBoxColumn Broj;
-        private DataGridViewCheckBoxColumn Aktivan;
+        private DataGridViewCheckBoxColumn Status;
         private DataGridViewButtonColumn Gradovi;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel tsslSat;
+        private System.Windows.Forms.Timer timer;
     }
 }

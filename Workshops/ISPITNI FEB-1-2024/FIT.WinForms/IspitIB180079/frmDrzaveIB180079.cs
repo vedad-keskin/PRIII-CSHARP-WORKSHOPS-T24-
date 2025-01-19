@@ -1,6 +1,5 @@
 ﻿using FIT.Data.IspitIB180079;
 using FIT.Infrastructure;
-using FIT.WinForms.Helpers;
 using FIT.WinForms.Izvjestaji;
 using System;
 using System.Collections.Generic;
@@ -18,7 +17,6 @@ namespace FIT.WinForms.IspitIB180079
     {
         DLWMSDbContext db = new DLWMSDbContext();
         List<DrzaveIB180079> drzave;
-        DrzaveIB180079 odabranaDrzava;
         public frmDrzaveIB180079()
         {
             InitializeComponent();
@@ -33,26 +31,33 @@ namespace FIT.WinForms.IspitIB180079
 
         private void UcitajDrzave()
         {
+            // drzave[0] = BIH -> Broj
+            // drzave[1] = NOV -> Broj
+            // drzave[2] = EGP -> Broj
+
+
             drzave = db.DrzaveIB180079.ToList();
+
+            for (int i = 0; i < drzave.Count(); i++) // 0 1 2
+            {
+                drzave[i].Broj = db.GradoviIB180079
+                    .Where(x => x.DrzavaId == drzave[i].Id)
+                    .Count();
+            }
+
+
 
             if (drzave != null)
             {
 
-
-                for (int i = 0; i < drzave.Count(); i++)
-                {
-
-                    drzave[i].BrojGradova = db.GradoviIB180079.Where(x => x.DrzavaId == drzave[i].Id).Count();
-
-                }
-
                 dgvDrzave.DataSource = null;
                 dgvDrzave.DataSource = drzave;
 
-                odabranaDrzava = drzave[0];
-
             }
+
+
         }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             UcitajVrijeme();
@@ -60,56 +65,68 @@ namespace FIT.WinForms.IspitIB180079
 
         private void UcitajVrijeme()
         {
-            tslVrijeme.Text = $"Trenutno vrijeme : {DateTime.Now.ToString("HH:mm:ss")}";
+            tsslSat.Text = $"Trenutno vrijeme: {DateTime.Now.ToString("HH:mm:ss")}";
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNovaDrzava_Click(object sender, EventArgs e)
         {
-            var frmNova = new frmNovaDrzavaIB180079();
+            var frmNovaDrzava = new frmNovaDrzavaIB180079();
 
-            if (frmNova.ShowDialog() == DialogResult.OK)
+            if (frmNovaDrzava.ShowDialog() == DialogResult.OK)
             {
                 UcitajDrzave();
-                MessageBox.Show("Država dodana.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void dgvDrzave_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            var odabranaDrzava = drzave[e.RowIndex];
+
+
+            if (e.ColumnIndex < 4)
+            {
+
+                var frmEditDrzava = new frmNovaDrzavaIB180079(odabranaDrzava);
+
+                if (frmEditDrzava.ShowDialog() == DialogResult.OK)
+                {
+                    UcitajDrzave();
+                }
+
+            }
+
+
         }
 
         private void dgvDrzave_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            odabranaDrzava = drzave[e.RowIndex];
+
+            var odabranaDrzava = drzave[e.RowIndex];
 
             if (e.ColumnIndex == 4)
             {
+
                 var frmGradovi = new frmGradoviIB180079(odabranaDrzava);
+
                 if (frmGradovi.ShowDialog() == DialogResult.OK)
                 {
                     UcitajDrzave();
                 }
+
             }
-            else
-            {
-                var frmModifikacija = new frmNovaDrzavaIB180079(odabranaDrzava);
-                if (frmModifikacija.ShowDialog() == DialogResult.OK)
-                {
-                    UcitajDrzave();
-                    MessageBox.Show("Država modifikovana.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-           var frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
-           frmIzvjestaj.ShowDialog();
-
 
         }
 
-        private void dgvDrzave_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnPrintaj_Click(object sender, EventArgs e)
         {
-            odabranaDrzava = drzave[e.RowIndex];
+
+            var odabranaDrzava = dgvDrzave.SelectedRows[0].DataBoundItem as DrzaveIB180079;
+
+            var frmIzvjestaj = new frmIzvjestaji(odabranaDrzava);
+
+            frmIzvjestaj.ShowDialog();
+
         }
     }
 }

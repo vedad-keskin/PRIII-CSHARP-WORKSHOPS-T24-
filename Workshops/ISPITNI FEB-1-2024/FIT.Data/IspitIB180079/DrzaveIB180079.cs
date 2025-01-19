@@ -14,11 +14,15 @@ namespace FIT.Data.IspitIB180079
         public bool Status { get; set; }
         public byte[] Zastava { get; set; }
 
+
         [NotMapped]
-        public int BrojGradova { get; set; }
+        public int Broj { get; set; }
+
+
         public override string ToString()
         {
             return Naziv;
         }
+
     }
 }

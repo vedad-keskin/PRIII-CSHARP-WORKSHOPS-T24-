@@ -24,46 +24,12 @@ namespace FIT.WinForms.IspitIB180079
             InitializeComponent();
         }
 
-        private void frmPretragaStudenataIB180079_Load(object sender, EventArgs e)
+        private void frmPretragaIB180079_Load(object sender, EventArgs e)
         {
             dgvStudenti.AutoGenerateColumns = false;
 
 
             cbDrzava.DataSource = db.DrzaveIB180079.ToList();
-
-         
-        }
-
-        private void UcitajStudente()
-        {
-
-            var odabraniGrad = cbGrad.SelectedItem == null ? "x" : cbGrad.SelectedItem.ToString();
-
-
-            studenti = db.Studenti
-                .Include(x=> x.Grad.Drzava)
-                .Where(x => (x.Grad.Naziv == odabraniGrad)) 
-                .ToList();
-
-
-            for (int i = 0; i < studenti.Count(); i++)
-            {
-                studenti[i].Prosjek = db.PolozeniPredmeti.Where(x => x.StudentId == studenti[i].Id).Count() == 0 ? 5 : db.PolozeniPredmeti
-                    .Where(x => x.StudentId == studenti[i].Id)
-                    .Average(x => x.Ocjena);
-            }
-
-            if (studenti != null)
-            {
-                dgvStudenti.DataSource = null;
-                dgvStudenti.DataSource = studenti;
-            }
-
-            if (studenti.Count() == 0)
-            {
-                MessageBox.Show($"U bazi nije evidentiran niti jedan student rođen u gradu {odabraniGrad} za drzavu {odabranaDrzava}", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
 
         }
 
@@ -71,16 +37,61 @@ namespace FIT.WinForms.IspitIB180079
         {
             odabranaDrzava = cbDrzava.SelectedItem as DrzaveIB180079;
 
+
             cbGrad.DataSource = db.GradoviIB180079
                 .Where(x => x.DrzavaId == odabranaDrzava.Id)
                 .ToList();
 
+            if(cbGrad.Items.Count == 0)
+            {
+                dgvStudenti.DataSource = null;
+            }
 
         }
 
         private void cbGrad_SelectedIndexChanged(object sender, EventArgs e)
         {
             UcitajStudente();
+
+        }
+
+        private void UcitajStudente()
+        {
+
+            var odabraniGrad = cbGrad.SelectedItem as GradoviIB180079;
+
+
+            studenti = db.Studenti
+                .Include(x => x.Grad.Drzava)
+                .Where(x => x.GradId == odabraniGrad.Id)
+                .ToList();
+
+
+            for (int i = 0; i < studenti.Count(); i++)
+            {
+
+                studenti[i].Prosjek = db.PolozeniPredmeti
+                    .Where(x => x.StudentId == studenti[i].Id)
+                    .Count() == 0 ? 5 :
+
+                    db.PolozeniPredmeti
+                    .Where(x => x.StudentId == studenti[i].Id)
+                    .Average(x => x.Ocjena);
+
+            }
+
+
+            if (studenti != null)
+            {
+                dgvStudenti.DataSource = null;
+                dgvStudenti.DataSource = studenti;
+            }
+
+
+            if (studenti.Count() == 0)
+            {
+                MessageBox.Show($"U bazi nije evidentiran niti jedan student rođen u gradu {odabraniGrad}, {odabranaDrzava}", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
