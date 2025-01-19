@@ -132,9 +132,9 @@ namespace FIT.WinForms.IspitIB180079
             if (ValidirajMultithreading())
             {
                 var student = cbStudent.SelectedItem as Student;
-                var nastava = cbNastava.SelectedItem as NastavaIB180079;
 
-                await Task.Run(() => GenerisiPrisustva(student, nastava));
+
+                await Task.Run(() => GenerisiPrisustva(student));
 
                 //Thread thread = new Thread(() => GenerisiPrisustva());
                 //thread.Start();
@@ -144,7 +144,7 @@ namespace FIT.WinForms.IspitIB180079
 
         }
 
-        private void GenerisiPrisustva(Student? student, NastavaIB180079? nastava)
+        private void GenerisiPrisustva(Student? student)
         {
             // 2. dio
             // -- kalkulacije
@@ -155,24 +155,34 @@ namespace FIT.WinForms.IspitIB180079
             var broj = int.Parse(txtBroj.Text);
             var info = "";
 
+            var nastaveProstorije = db.NastavaIB180079
+                .Include(x=> x.Predmet)
+                .Where(x=> x.ProstorijaId == odabranaProstorija.Id)
+                .ToList();
+
 
             for (int i = 0; i < broj; i++)
             {
                 Thread.Sleep(300);
 
-                var novoPrisustvo = new PrisustvoIB180079()
+
+                for (int j = 0; j < nastaveProstorije.Count(); j++)
                 {
 
-                    NastavaId = nastava.Id,
-                    StudentId = student.Id
 
-                };
+                    var novoPrisustvo = new PrisustvoIB180079()
+                    {
 
-                db.PrisustvoIB180079.Add(novoPrisustvo);
-                db.SaveChanges();
+                        NastavaId = nastaveProstorije[j].Id,
+                        StudentId = student.Id
 
-                info += $"{DateTime.Now.ToString("dd.MM HH:mm:ss")} {student} za {nastava}{Environment.NewLine}";
+                    };
 
+                    db.PrisustvoIB180079.Add(novoPrisustvo);
+                    db.SaveChanges();
+
+                    info += $"{DateTime.Now.ToString("dd.MM HH:mm:ss")} {student} za {nastaveProstorije[j]}{Environment.NewLine}";
+                }
 
             }
 
