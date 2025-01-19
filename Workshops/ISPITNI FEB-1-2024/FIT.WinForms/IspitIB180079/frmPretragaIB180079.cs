@@ -42,6 +42,9 @@ namespace FIT.WinForms.IspitIB180079
                 .Where(x => x.DrzavaId == odabranaDrzava.Id)
                 .ToList();
 
+
+            // kada ides sa filitracije sa studentima na drzavu bez gradova
+            // da ne ostanu stari studenti
             if(cbGrad.Items.Count == 0)
             {
                 dgvStudenti.DataSource = null;

@@ -19,14 +19,14 @@ namespace FIT.WinForms.IspitIB180079
         DLWMSDbContext db = new DLWMSDbContext();
         private DrzaveIB180079 odabranaDrzava;
 
-        // nova drzava
+        // constr. za dodavanje nove države
         public frmNovaDrzavaIB180079()
         {
             InitializeComponent();
         }
 
 
-        // edit postojece drzava
+        // constr. za editovanje postojeće države
         public frmNovaDrzavaIB180079(DrzaveIB180079 odabranaDrzava)
         {
             InitializeComponent();
@@ -113,6 +113,7 @@ namespace FIT.WinForms.IspitIB180079
             {
                 // BYTE[] -> IMAGE
                 pbZastava.Image = odabranaDrzava.Zastava.ToImage();
+                //pbZastava.Image = Ekstenzije.ToImage(odabranaDrzava.Zastava);
 
                 txtNaziv.Text = odabranaDrzava.Naziv;
 

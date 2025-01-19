@@ -68,14 +68,9 @@ namespace FIT.WinForms.IspitIB180079
             if (e.ColumnIndex == 2)
             {
 
-
                 odabraniGrad.Status = !odabraniGrad.Status;
 
-
-                // pohrana          =          iskaz/provjera     ? ako je true uradi ovo : ako ovo nije true ;
-                //odabraniGrad.Status = odabraniGrad.Status ? false : true;
-
-                // ?? ako je lijeva strana null neka se nesto desi -> 
+                //odabraniGrad.Status = odabraniGrad.Status ? false: true;    
 
 
                 db.GradoviIB180079.Update(odabraniGrad);
@@ -144,7 +139,7 @@ namespace FIT.WinForms.IspitIB180079
             // 1. dio
             // -- validacija
             // -- kreiranje threada/pokretanje threada ili await/async/run
-            // -- [---]
+            // -- sve vezano za combo box
 
 
             if (ValidirajMultithreading())

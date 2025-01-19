@@ -79,38 +79,32 @@ namespace FIT.WinForms.IspitIB180079
             var student = cbStudent.SelectedItem as Student;
             var nastava = cbNastava.SelectedItem as NastavaIB180079;
 
-            if (prisustva.Exists(x => x.StudentId == student.Id))
+
+            if (prisustva.Count() == odabranaProstorija.Kapacitet)
             {
-                MessageBox.Show("Student je vec evidentiran na toj nastavi", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Kapacitet prostorije je popunjen", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (prisustva.Exists(x => x.StudentId == student.Id))
+            {
+                MessageBox.Show($"Student {student} je već evidentiran na nastavi", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                //    8              ==    8 
-                if (prisustva.Count() == odabranaProstorija.Kapacitet)
+                var novoPrisustvo = new PrisustvoIB180079()
                 {
-                    MessageBox.Show("Prostorija je popunjena", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
+                    StudentId = student.Id,
+                    NastavaId = nastava.Id
 
-                    var novoPrisutvo = new PrisustvoIB180079()
-                    {
+                };
 
-                        NastavaId = nastava.Id,
-                        StudentId = student.Id
-
-                    };
-
-                    db.PrisustvoIB180079.Add(novoPrisutvo);
-                    db.SaveChanges();
-                }
-
+                db.PrisustvoIB180079.Add(novoPrisustvo);
+                db.SaveChanges();
 
             }
 
 
-
             UcitajPrisustva();
+
 
         }
 
@@ -145,7 +139,7 @@ namespace FIT.WinForms.IspitIB180079
         {
             // 2. dio
             // -- pohrane ali ako one nisu iz comboboxa
-            // -- kalkalacije
+            // -- kalkulacije
             // -- pohrane na bazu
             // -- spavanje threada
 

@@ -68,6 +68,7 @@
             lblNazivDrzave.Name = "lblNazivDrzave";
             lblNazivDrzave.Size = new Size(519, 46);
             lblNazivDrzave.TabIndex = 1;
+            lblNazivDrzave.Text = "Država placeholder";
             // 
             // label1
             // 

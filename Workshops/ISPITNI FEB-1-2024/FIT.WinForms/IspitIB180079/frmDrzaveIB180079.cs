@@ -75,6 +75,8 @@ namespace FIT.WinForms.IspitIB180079
             if (frmNovaDrzava.ShowDialog() == DialogResult.OK)
             {
                 UcitajDrzave();
+
+                MessageBox.Show($"Grad je uspješno dodan", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -92,6 +94,8 @@ namespace FIT.WinForms.IspitIB180079
                 if (frmEditDrzava.ShowDialog() == DialogResult.OK)
                 {
                     UcitajDrzave();
+                    MessageBox.Show($"Grad je uspješno uređen", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
 
             }

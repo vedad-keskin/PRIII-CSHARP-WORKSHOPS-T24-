@@ -141,8 +141,8 @@
             // tsslSat
             // 
             tsslSat.Name = "tsslSat";
-            tsslSat.Size = new Size(27, 20);
-            tsslSat.Text = "---";
+            tsslSat.Size = new Size(128, 20);
+            tsslSat.Text = "Clock placeholder";
             // 
             // timer
             // 
