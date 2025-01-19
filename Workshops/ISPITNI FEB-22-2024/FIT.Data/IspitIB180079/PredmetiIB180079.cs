@@ -8,7 +8,6 @@ namespace FIT.Data.IspitIB180079
 {
     public class PredmetiIB180079
     {
-
         public int Id { get; set; }
         public string Naziv { get; set; }
         public int Semestar { get; set; }
@@ -17,8 +16,5 @@ namespace FIT.Data.IspitIB180079
         {
             return Naziv;
         }
-
-
-
     }
 }

@@ -25,91 +25,119 @@ namespace FIT.WinForms.IspitIB180079
         private void frmProstorijeIB180079_Load(object sender, EventArgs e)
         {
             dgvProstorije.AutoGenerateColumns = false;
+            // alt + enter
             UcitajProstorije();
         }
 
         private void UcitajProstorije()
         {
-            prostorije = db.ProstorijeIB180079.ToList();
+            // prostorije[0] = AMF1
+            // prostorije[1] = UC1
+            // prostorije[2] = AKS
 
+            prostorije = db.ProstorijeIB180079.ToList();
 
             for (int i = 0; i < prostorije.Count(); i++)
             {
-                prostorije[i].Broj = db.NastavaIB180079.Where(x => x.ProstorijaId == prostorije[i].Id).Count();
+                prostorije[i].Broj = db.NastavaIB180079
+                    .Where(x => x.ProstorijaId == prostorije[i].Id)
+                    .Count();
             }
 
 
             if (prostorije != null)
             {
-
-
                 dgvProstorije.DataSource = null;
                 dgvProstorije.DataSource = prostorije;
+
             }
+
+
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNovaProstorija_Click(object sender, EventArgs e)
         {
-            var frmNovaProstorija = new frmNovaProstorijaIB180079();
-            if (frmNovaProstorija.ShowDialog() == DialogResult.OK)
+
+            var frmNova = new frmNovaProstorijaIB180079();
+
+            if (frmNova.ShowDialog() == DialogResult.OK)
             {
                 UcitajProstorije();
-                MessageBox.Show("Prostorija je dodana");
-
+                MessageBox.Show("Uspješno je dodana prostorija", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
 
         }
 
         private void dgvProstorije_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // e.ColumnIndex = 3
+            // e.RowIndex = 1 
+
+            // prostorije[0] = AMF1
+            // prostorije[1] = UC1
+            // prostorije[2] = AKS
+
             var odabranaProstorija = prostorije[e.RowIndex];
-            //var odabranaProstorija2 = dgvProstorije.SelectedRows[0].DataBoundItem as ProstorijeIB180079;
+
 
             if (e.ColumnIndex < 5)
             {
-                frmNovaProstorijaIB180079 frmModifikacija = new frmNovaProstorijaIB180079(odabranaProstorija);
-                if (frmModifikacija.ShowDialog() == DialogResult.OK)
+
+
+                var frmEdit = new frmNovaProstorijaIB180079(odabranaProstorija);
+
+                if (frmEdit.ShowDialog() == DialogResult.OK)
                 {
                     UcitajProstorije();
-                    MessageBox.Show("Prostorija je modifikovana");
+                    MessageBox.Show("Uspješno je uređena prostorija", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+
+
             }
-
-
 
         }
 
         private void dgvProstorije_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             var odabranaProstorija = prostorije[e.RowIndex];
+            //var odabranaProstorija = dgvProstorije.SelectedRows[0].DataBoundItem as ProstorijeIB180079;
 
             if (e.ColumnIndex == 5)
             {
 
                 var frmNastava = new frmNastavaIB180079(odabranaProstorija);
+
                 if (frmNastava.ShowDialog() == DialogResult.OK)
                 {
+
                     UcitajProstorije();
+
                 }
 
             }
             else if (e.ColumnIndex == 6)
             {
                 var frmPrisustvo = new frmPrisustvoIB180079(odabranaProstorija);
+
                 frmPrisustvo.ShowDialog();
             }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnPrintaj_Click(object sender, EventArgs e)
         {
 
             var odabranaProstorija = dgvProstorije.SelectedRows[0].DataBoundItem as ProstorijeIB180079;
 
+
             var frmIzvjestaj = new frmIzvjestaji(odabranaProstorija);
+
             frmIzvjestaj.ShowDialog();
+
 
         }
     }

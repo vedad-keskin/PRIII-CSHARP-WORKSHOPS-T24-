@@ -30,7 +30,7 @@
         {
             lblKonekcijaInfo = new Label();
             btnIzvjestaj = new Button();
-            button1 = new Button();
+            btnIspit = new Button();
             SuspendLayout();
             // 
             // lblKonekcijaInfo
@@ -53,22 +53,23 @@
             btnIzvjestaj.UseVisualStyleBackColor = true;
             btnIzvjestaj.Click += btnIzvjestaj_Click;
             // 
-            // button1
+            // btnIspit
             // 
-            button1.Location = new Point(158, 191);
-            button1.Name = "button1";
-            button1.Size = new Size(207, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Ispit 22.02.2024";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnIspit.BackColor = SystemColors.ButtonHighlight;
+            btnIspit.Location = new Point(158, 191);
+            btnIspit.Name = "btnIspit";
+            btnIspit.Size = new Size(207, 29);
+            btnIspit.TabIndex = 2;
+            btnIspit.Text = "Ispit 22.02.2024";
+            btnIspit.UseVisualStyleBackColor = false;
+            btnIspit.Click += btnIspit_Click;
             // 
             // frmPocetna
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 245);
-            Controls.Add(button1);
+            Controls.Add(btnIspit);
             Controls.Add(btnIzvjestaj);
             Controls.Add(lblKonekcijaInfo);
             Margin = new Padding(3, 4, 3, 4);
@@ -86,6 +87,6 @@
 
         private Label lblKonekcijaInfo;
         private Button btnIzvjestaj;
-        private Button button1;
+        private Button btnIspit;
     }
 }

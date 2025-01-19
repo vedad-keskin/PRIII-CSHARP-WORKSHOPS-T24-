@@ -17,13 +17,15 @@ namespace FIT.WinForms.IspitIB180079
     public partial class frmNovaProstorijaIB180079 : Form
     {
         DLWMSDbContext db = new DLWMSDbContext();
-        private ProstorijeIB180079 odabranaProstorija;
+        private ProstorijeIB180079 odabranaProstorija; // ako radimo editovanje odabranaProstorija ne postoji (onda je null)
 
+        // dft. constr. ---> za dodavanje nove prostorije
         public frmNovaProstorijaIB180079()
         {
             InitializeComponent();
         }
 
+        // usr-def constr. ---> za editovanje postojece drzave
         public frmNovaProstorijaIB180079(ProstorijeIB180079 odabranaProstorija)
         {
             InitializeComponent();
@@ -34,23 +36,39 @@ namespace FIT.WinForms.IspitIB180079
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                //             C:\Users\ASUS\Desktop\C# Repos\Slike helpers\Google_Classroom_Logo.jpg
                 pbLogo.Image = Image.FromFile(openFileDialog1.FileName);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSacuvaj_Click(object sender, EventArgs e)
         {
             if (Validiraj())
             {
 
                 var naziv = txtNaziv.Text;
                 var oznaka = txtOznaka.Text;
+
+                // STRING -> INT 
                 var kapacitet = int.Parse(txtKapacitet.Text);
-                var logo = Ekstenzije.ToByteArray(pbLogo.Image);
 
+                // IMAGE -> BYTE[]
+                var logo = pbLogo.Image.ToByteArray();
+                // var logo = Ekstenzije.ToByteArray(pbLogo.Image);
 
-                if(odabranaProstorija != null) // radimo editovanje
+                if(odabranaProstorija == null) // radimo dodavanje
+                {
+                    var novaProstorija = new ProstorijeIB180079()
+                    {
+                        Logo = logo,
+                        Naziv = naziv,
+                        Oznaka = oznaka,
+                        Kapacitet = kapacitet
+                    };
+
+                    db.ProstorijeIB180079.Add(novaProstorija);
+
+                }
+                else // radimo editovanje
                 {
 
                     odabranaProstorija.Naziv = naziv;
@@ -58,22 +76,8 @@ namespace FIT.WinForms.IspitIB180079
                     odabranaProstorija.Kapacitet = kapacitet;
                     odabranaProstorija.Logo = logo;
 
-                    db.Entry(odabranaProstorija).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.ProstorijeIB180079.Update(odabranaProstorija);
 
-                }
-                else
-                {
-
-                    var novaProstorija = new ProstorijeIB180079()
-                    {
-                        Naziv = naziv,
-                        Logo = logo,
-                        Kapacitet = kapacitet,
-                        Oznaka = oznaka
-
-                    };
-
-                    db.ProstorijeIB180079.Add(novaProstorija);
                 }
 
                 db.SaveChanges();
@@ -81,30 +85,41 @@ namespace FIT.WinForms.IspitIB180079
                 DialogResult = DialogResult.OK;
 
 
-
             }
         }
 
         private bool Validiraj()
         {
-            return Helpers.Validator.ProvjeriUnos(txtKapacitet, err, Kljucevi.ReqiredValue) &&
-                Helpers.Validator.ProvjeriUnos(txtNaziv, err, Kljucevi.ReqiredValue) &&
-                Helpers.Validator.ProvjeriUnos(txtOznaka, err, Kljucevi.ReqiredValue) &&
-                Helpers.Validator.ProvjeriUnos(pbLogo, err, Kljucevi.ReqiredValue);
+            return Validator.ProvjeriUnos(pbLogo, err, Kljucevi.ReqiredValue)
+                &&
+                Validator.ProvjeriUnos(txtKapacitet, err, Kljucevi.ReqiredValue)
+                &&
+                Validator.ProvjeriUnos(txtNaziv, err, Kljucevi.ReqiredValue)
+                &&
+                Validator.ProvjeriUnos(txtOznaka, err, Kljucevi.ReqiredValue);
         }
 
         private void frmNovaProstorijaIB180079_Load(object sender, EventArgs e)
         {
+            UcitajInfo();
+        }
 
-            if(odabranaProstorija != null) // ako radimo editovanje
+        private void UcitajInfo()
+        {
+            if(odabranaProstorija != null) // ako radimo edit
             {
+                // BYTE[] -> IMAGE
+                pbLogo.Image = odabranaProstorija.Logo.ToImage();
+                //pbLogo.Image = Ekstenzije.ToImage(odabranaProstorija.Logo);
 
-                txtKapacitet.Text = odabranaProstorija.Kapacitet.ToString();
                 txtNaziv.Text = odabranaProstorija.Naziv;
                 txtOznaka.Text = odabranaProstorija.Oznaka;
-                //pbLogo.Image = Ekstenzije.ToImage(odabranaProstorija.Logo);
-                pbLogo.Image = odabranaProstorija.Logo.ToImage();
+
+                // INT -> STRING
+                txtKapacitet.Text = odabranaProstorija.Kapacitet.ToString();
+
             }
+
 
         }
     }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnNovaProstorija = new Button();
+            btnPrintaj = new Button();
             dgvProstorije = new DataGridView();
             Logo = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
@@ -41,25 +41,25 @@
             ((System.ComponentModel.ISupportInitialize)dgvProstorije).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnNovaProstorija
             // 
-            button1.Location = new Point(817, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Nova prostorija";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnNovaProstorija.Location = new Point(741, 12);
+            btnNovaProstorija.Name = "btnNovaProstorija";
+            btnNovaProstorija.Size = new Size(157, 29);
+            btnNovaProstorija.TabIndex = 0;
+            btnNovaProstorija.Text = "Nova prostorija";
+            btnNovaProstorija.UseVisualStyleBackColor = true;
+            btnNovaProstorija.Click += btnNovaProstorija_Click;
             // 
-            // button2
+            // btnPrintaj
             // 
-            button2.Location = new Point(817, 311);
-            button2.Name = "button2";
-            button2.Size = new Size(146, 29);
-            button2.TabIndex = 0;
-            button2.Text = "Printaj";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnPrintaj.Location = new Point(741, 265);
+            btnPrintaj.Name = "btnPrintaj";
+            btnPrintaj.Size = new Size(157, 29);
+            btnPrintaj.TabIndex = 0;
+            btnPrintaj.Text = "Printaj";
+            btnPrintaj.UseVisualStyleBackColor = true;
+            btnPrintaj.Click += btnPrintaj_Click;
             // 
             // dgvProstorije
             // 
@@ -67,13 +67,13 @@
             dgvProstorije.AllowUserToDeleteRows = false;
             dgvProstorije.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProstorije.Columns.AddRange(new DataGridViewColumn[] { Logo, Naziv, Oznaka, Kapacitet, Broj, Nastava, Prisustvo });
-            dgvProstorije.Location = new Point(12, 70);
+            dgvProstorije.Location = new Point(12, 47);
             dgvProstorije.Name = "dgvProstorije";
             dgvProstorije.ReadOnly = true;
             dgvProstorije.RowHeadersWidth = 51;
             dgvProstorije.RowTemplate.Height = 29;
             dgvProstorije.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProstorije.Size = new Size(951, 235);
+            dgvProstorije.Size = new Size(886, 212);
             dgvProstorije.TabIndex = 1;
             dgvProstorije.CellContentClick += dgvProstorije_CellContentClick;
             dgvProstorije.CellDoubleClick += dgvProstorije_CellDoubleClick;
@@ -86,7 +86,7 @@
             Logo.MinimumWidth = 6;
             Logo.Name = "Logo";
             Logo.ReadOnly = true;
-            Logo.Width = 75;
+            Logo.Width = 60;
             // 
             // Naziv
             // 
@@ -117,12 +117,12 @@
             // 
             // Broj
             // 
-            Broj.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Broj.DataPropertyName = "Broj";
             Broj.HeaderText = "Br. predmeta";
             Broj.MinimumWidth = 6;
             Broj.Name = "Broj";
             Broj.ReadOnly = true;
+            Broj.Width = 125;
             // 
             // Nastava
             // 
@@ -148,10 +148,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(976, 351);
+            ClientSize = new Size(913, 306);
             Controls.Add(dgvProstorije);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnPrintaj);
+            Controls.Add(btnNovaProstorija);
             Name = "frmProstorijeIB180079";
             Text = "Prostorije";
             Load += frmProstorijeIB180079_Load;
@@ -161,8 +161,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnNovaProstorija;
+        private Button btnPrintaj;
         private DataGridView dgvProstorije;
         private DataGridViewImageColumn Logo;
         private DataGridViewTextBoxColumn Naziv;
