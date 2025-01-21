@@ -19,5 +19,7 @@ namespace FIT.Data.IspitIB180079
         public string Napomena { get; set; }
 
 
+
+
     }
 }

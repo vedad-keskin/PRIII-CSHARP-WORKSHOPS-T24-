@@ -39,7 +39,7 @@ namespace FIT.WinForms.IspitIB180079
 
             var aktivan = chbAktivan.Checked;
 
-            var spol = cbSpol.SelectedItem.ToString(); // "Svi" "Muski"
+            var spol = cbSpol.SelectedItem.ToString(); // "Svi" "Muški" "Ženski"
 
             var imePrezime = txtImePrezime.Text.ToLower(); // "Jasmin jasmin
 
