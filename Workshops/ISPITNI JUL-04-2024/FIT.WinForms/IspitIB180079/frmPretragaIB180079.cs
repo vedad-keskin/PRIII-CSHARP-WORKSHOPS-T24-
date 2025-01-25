@@ -106,7 +106,7 @@ namespace FIT.WinForms.IspitIB180079
             //var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
 
             var odabraniStudent = studenti[e.RowIndex];
-
+            
 
             if (e.ColumnIndex < 6)
             {
